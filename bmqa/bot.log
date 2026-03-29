@@ -1,0 +1,217 @@
+2026-03-29 17:45:55,896 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 17:45:55,908 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 17:45:55,911 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 17:45:55,913 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 17:45:55,915 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 17:45:55,916 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 17:45:55,917 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-29 17:45:55,929 - __main__ - INFO - ======================================================================
+2026-03-29 17:45:55,930 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-29 17:45:55,931 - __main__ - INFO - ======================================================================
+2026-03-29 17:45:55,931 - __main__ - INFO - ✅ TOKEN: 6308413113:AAG2KRz3B...
+2026-03-29 17:45:55,931 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-29 17:45:55,931 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-29 17:45:57,111 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-29 17:45:57,112 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-29 17:45:57,123 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-29 17:45:57,123 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-29 17:45:57,168 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-29 17:45:57,832 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.all: No module named 'akinator'
+2026-03-29 17:45:57,851 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-29 17:45:57,941 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-29 17:45:57,951 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-29 17:45:57,959 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-29 17:45:57,975 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-29 17:45:58,008 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-29 17:45:58,029 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-29 17:45:58,039 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-29 17:45:58,047 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-29 17:45:58,055 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-29 17:45:58,058 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.games: No module named 'akinator'
+2026-03-29 17:45:58,095 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.group_update: No module named 'akinator'
+2026-03-29 17:45:58,140 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.id: No module named 'akinator'
+2026-03-29 17:45:58,148 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-29 17:45:58,612 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.downloader: No module named 'PIL'
+2026-03-29 17:45:58,617 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-29 17:45:58,654 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.private&sudos: No module named 'cpuinfo'
+2026-03-29 17:45:58,654 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-29 17:45:58,655 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:45:58,655 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-29 17:45:58,655 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:45:59,456 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getMe "HTTP/1.1 200 OK"
+2026-03-29 17:45:59,715 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-29 17:45:59,716 - apscheduler.scheduler - INFO - Scheduler started
+2026-03-29 17:45:59,717 - telegram.ext.Application - INFO - Application started
+2026-03-29 17:46:10,290 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:46:20,476 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:46:25,356 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:46:26,012 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-29 17:46:26,213 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-29 17:46:26,464 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 200 OK"
+2026-03-29 17:46:26,465 - __main__ - INFO - ✅ المستخدم 1116907157 بدأ البوت
+2026-03-29 17:46:35,551 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:46:40,744 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:46:46,158 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:46:51,496 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:01,681 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:11,869 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:22,059 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:31,418 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:32,060 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 200 OK"
+2026-03-29 17:47:32,061 - __main__ - INFO - ✅ المستخدم 1116907157 بدأ البوت
+2026-03-29 17:47:41,619 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:43,248 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:47:53,448 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:48:03,636 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:48:13,820 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:48:14,045 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:48:14,046 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-03-29 17:48:14,047 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-03-29 17:48:14,066 - telegram.ext.Application - INFO - Application.stop() complete
+2026-03-29 17:48:14,068 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:48:14,069 - __main__ - INFO - 👋 البوت متوقف
+2026-03-29 17:48:14,069 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:58:46,896 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 17:58:46,900 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 17:58:46,903 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 17:58:46,906 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 17:58:46,908 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 17:58:46,910 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 17:58:46,912 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-29 17:58:46,917 - __main__ - INFO - ======================================================================
+2026-03-29 17:58:46,917 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-29 17:58:46,917 - __main__ - INFO - ======================================================================
+2026-03-29 17:58:46,918 - __main__ - INFO - ✅ TOKEN: 6308413113:AAG2KRz3B...
+2026-03-29 17:58:46,918 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-29 17:58:46,918 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-29 17:58:48,011 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-29 17:58:48,011 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-29 17:58:48,016 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-29 17:58:48,016 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-29 17:58:48,018 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-29 17:58:48,117 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.all: No module named 'aiohttp'
+2026-03-29 17:58:48,119 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-29 17:58:48,121 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-29 17:58:48,122 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-29 17:58:48,124 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-29 17:58:48,125 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-29 17:58:48,127 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-29 17:58:48,129 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-29 17:58:48,130 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-29 17:58:48,132 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-29 17:58:48,133 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-29 17:58:48,134 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-29 17:58:48,144 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.group_update: No module named 'aiohttp'
+2026-03-29 17:58:48,147 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-29 17:58:48,149 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-29 17:58:48,468 - __main__ - INFO - ✅ تم تحميل Plugins.downloader
+2026-03-29 17:58:48,470 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-29 17:58:48,562 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.private&sudos: No module named 'meval'
+2026-03-29 17:58:48,563 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-29 17:58:48,563 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:58:48,563 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-29 17:58:48,564 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:58:49,171 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getMe "HTTP/1.1 200 OK"
+2026-03-29 17:58:49,398 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-29 17:58:49,400 - apscheduler.scheduler - INFO - Scheduler started
+2026-03-29 17:58:49,401 - telegram.ext.Application - INFO - Application started
+2026-03-29 17:58:49,940 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:58:50,187 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 200 OK"
+2026-03-29 17:58:50,189 - __main__ - INFO - ✅ المستخدم 1116907157 بدأ البوت
+2026-03-29 17:59:00,116 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:59:09,953 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:59:14,014 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:59:24,195 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:59:24,370 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 17:59:24,371 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-03-29 17:59:24,372 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-03-29 17:59:24,386 - telegram.ext.Application - INFO - Application.stop() complete
+2026-03-29 17:59:24,388 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 17:59:24,388 - __main__ - INFO - 👋 البوت متوقف
+2026-03-29 17:59:24,389 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 18:34:54,178 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 18:34:54,181 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 18:34:54,186 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 18:34:54,190 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 18:34:54,192 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 18:34:54,194 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 18:34:54,195 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-29 18:34:54,203 - __main__ - INFO - ======================================================================
+2026-03-29 18:34:54,204 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-29 18:34:54,204 - __main__ - INFO - ======================================================================
+2026-03-29 18:34:54,204 - __main__ - INFO - ✅ TOKEN: 6308413113:AAG2KRz3B...
+2026-03-29 18:34:54,204 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-29 18:34:54,205 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-29 18:34:55,316 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-29 18:34:55,316 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-29 18:34:55,322 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-29 18:34:55,323 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-29 18:34:55,325 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-29 18:34:55,410 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.all: No module named 'aiohttp'
+2026-03-29 18:34:55,426 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-29 18:34:55,428 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-29 18:34:55,430 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-29 18:34:55,432 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-29 18:34:55,434 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-29 18:34:55,436 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-29 18:34:55,437 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-29 18:34:55,439 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-29 18:34:55,441 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-29 18:34:55,442 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-29 18:34:55,443 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-29 18:34:55,454 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.group_update: No module named 'aiohttp'
+2026-03-29 18:34:55,457 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-29 18:34:55,458 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-29 18:34:55,850 - __main__ - INFO - ✅ تم تحميل Plugins.downloader
+2026-03-29 18:34:55,852 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-29 18:34:55,938 - __main__ - WARNING - ⚠️ خطأ في تحميل Plugins.private&sudos: No module named 'meval'
+2026-03-29 18:34:55,939 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-29 18:34:55,939 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 18:34:55,939 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-29 18:34:55,940 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 18:34:56,596 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getMe "HTTP/1.1 200 OK"
+2026-03-29 18:34:56,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-29 18:34:56,832 - apscheduler.scheduler - INFO - Scheduler started
+2026-03-29 18:34:56,833 - telegram.ext.Application - INFO - Application started
+2026-03-29 18:35:07,382 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:35:17,575 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:35:27,759 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:35:37,946 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:35:48,134 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:35:58,313 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:36:08,560 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:36:18,742 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:36:28,923 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:36:39,131 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:36:49,367 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:36:59,550 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:00,124 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:01,753 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:02,396 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-29 18:37:02,588 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-29 18:37:02,826 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/sendMessage "HTTP/1.1 200 OK"
+2026-03-29 18:37:02,827 - __main__ - INFO - ✅ المستخدم 1116907157 بدأ البوت
+2026-03-29 18:37:11,954 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:12,390 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:18,835 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:29,032 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:39,218 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:49,412 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:37:59,638 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:38:09,822 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:38:20,006 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:38:30,197 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:38:40,401 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:38:50,587 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:00,772 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:10,957 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:21,142 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:31,322 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:41,502 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:41,684 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 18:39:41,685 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-03-29 18:39:41,686 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-03-29 18:39:41,698 - telegram.ext.Application - INFO - Application.stop() complete
+2026-03-29 18:39:41,699 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 18:39:41,700 - __main__ - INFO - 👋 البوت متوقف
+2026-03-29 18:39:41,701 - __main__ - INFO - ════════════════════════════════════════════════════════════════
