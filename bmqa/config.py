@@ -112,7 +112,7 @@ except Exception as e:
     print(f"Redis not available: {e}")
     r = DummyRedis()
 
-TOKEN = os.environ.get("BOT_TOKEN", "6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU")
+TOKEN = os.environ.get("BOT_TOKEN", "5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY")
 if not TOKEN:
     raise RuntimeError(
         "BOT_TOKEN environment variable is not set. "

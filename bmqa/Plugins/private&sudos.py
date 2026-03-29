@@ -77,6 +77,9 @@ def get_size(bytes, suffix="B"):
 
 # @Client.on_message() & filters.private, group=-2007)
 async def on_send_hmsa(update: Update, context: ContextTypes.DEFAULT_TYPE):
+   message = update.message
+   user = update.effective_user
+   if not message or not user: return
    id = message.text.split("hmsa")[1]
    if not wsdb.get(id):
       return await message.reply_text("رابط الهمسة غلط")
@@ -91,6 +94,10 @@ async def on_send_hmsa(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 @Client.on_message()
 async def open_hms(update: Update, context: ContextTypes.DEFAULT_TYPE):
+   message = update.message
+   user = update.effective_user
+   chat = update.effective_chat
+   if not message or not user or not chat: return
    id = message.text.split("openhms")[1]
    if not wsdb.get(f"hms-{id}"):
       return await message.reply_text("رابط الهمسة غلط")
@@ -116,8 +123,12 @@ async def sleep_and_delete(client, chat_id, message):
     await client.delete_messages(chat_id, message_ids=message.message_id)
 
 async def to_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
+   message = update.message
+   user = update.effective_user
+   chat = update.effective_chat
+   if not message or not user or not chat: return
    if message.text and re.match("^/start hmsa", message.text):
-      return await on_send_hmsa(c, m)
+      return await on_send_hmsa(update, context)
    k = r.get(f'{Dev_Zaid}:botkey') or '☆'
    if r.get(f'{chat.id}:pvBroadcast:{user.id}{Dev_Zaid}') and dev2_pls(user.id,chat.id):
       r.delete(f'{chat.id}:pvBroadcast:{user.id}{Dev_Zaid}')
@@ -165,26 +176,27 @@ async def to_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
       chat = get["chat"]
       id = get["id"]
       data = {}
-      if message.media:
-         if message.photo:
-            file_id = message.photo.file_id
-         elif message.video:
-            file_id = message.video.file_id
-         elif message.animation:
-            file_id = message.animation.file_id
-         elif message.audio:
-            file_id = message.audio.file_id
-         elif message.voice:
-            file_id = message.voice.file_id
-         elif message.sticker:
-            file_id = message.sticker.file_id
-         elif message.document:
-            file_id = message.document.file_id
+      file_id = None
+      if message.photo:
+         file_id = message.photo[-1].file_id
+      elif message.video:
+         file_id = message.video.file_id
+      elif message.animation:
+         file_id = message.animation.file_id
+      elif message.audio:
+         file_id = message.audio.file_id
+      elif message.voice:
+         file_id = message.voice.file_id
+      elif message.sticker:
+         file_id = message.sticker.file_id
+      elif message.document:
+         file_id = message.document.file_id
+      if file_id:
          caption = message.caption
-         data ["caption"]=caption
-         data["file"]=file_id
+         data["caption"] = caption
+         data["file"] = file_id
       elif message.text:
-         data["text"]=message.text.html
+         data["text"] = message.text
       
       import uuid
       id = str(uuid.uuid4())[:6]
@@ -653,16 +665,15 @@ async def SudosCommandsFunc(update, context, k,r,channel):
    if text == 'السيرفر' or text == 'معلومات السيرفر':
      if devp_pls(user.id,chat.id):
        text = '——— SYSTEM INFO ———'
-       uname = platformessage.uname()
-       version = lsb_release.get_distro_information()['DESCRIPTION']
+       uname = platform.uname()
        text += f"\n{k} النظام : {uname.system}"
-       text += f"\n{k} الاصدار: `{version}`"
+       text += f"\n{k} الاصدار: `{uname.release}`"
        text += '\n——— R.A.M INFO ———'
        if not psutil: return
        svmem = psutil.virtual_memory()
-       text += f"\n{k} رامات السيرفر: ` {get_size(svmemessage.total)}`"
-       text += f"\n{k} المستهلك: ` {get_size(svmemessage.used)}/{get_size(svmemessage.available)}`"
-       text += f"\n{k} نسبة الاستهلاك: `{svmemessage.percent}%`"
+       text += f"\n{k} رامات السيرفر: ` {get_size(svmem.total)}`"
+       text += f"\n{k} المستهلك: ` {get_size(svmem.used)}/{get_size(svmem.available)}`"
+       text += f"\n{k} نسبة الاستهلاك: `{svmem.percent}%`"
        text += '\n——— HARD DISK ———'
        hard = psutil.disk_partitions()[0]
        usage = psutil.disk_usage(hard.mountpoint)
@@ -682,7 +693,7 @@ async def SudosCommandsFunc(update, context, k,r,channel):
         list.append(int(chat))
      with open(f'{date}.json', 'w+') as w:
         w.write(json.dumps({"botUsername": botUsername,"botID":context.bot.id,"Chats":list},indent=4,ensure_ascii=False))
-     message.reply_document(f'{date}.json',quote=True)
+     await message.reply_document(f'{date}.json',quote=True)
      os.remove(f'{date}.json')
    
    if text == 'جلب نسخة المستخدمين' and devp_pls(user.id,chat.id):
@@ -692,7 +703,7 @@ async def SudosCommandsFunc(update, context, k,r,channel):
         list.append(int(chat))
      with open(f'{date}.json', 'w+') as w:
         w.write(json.dumps({"botUsername": botUsername,"botID":context.bot.id,"Users":list},indent=4,ensure_ascii=False))
-     message.reply_document(f'{date}.json',quote=True)
+     await message.reply_document(f'{date}.json',quote=True)
      os.remove(f'{date}.json')
 
    if text == 'المكتومين عام':
@@ -803,8 +814,12 @@ strings_tio = {
 
 @Client.on_message()
 async def exec_tio_run_code(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    execlanguage = message.command[1]
-    codetoexec = message.text.split(None, 2)[2]
+    message = update.message
+    if not message or not message.text: return
+    parts = message.text.split(None, 2)
+    if len(parts) < 3: return
+    execlanguage = parts[1]
+    codetoexec = parts[2]
     if execlanguage in langslist:
         tioreq = TioRequest(lang=execlanguage, code=codetoexec)
         loop = asyncio.get_event_loop()
@@ -839,7 +854,11 @@ async def exec_tio_run_code(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 @Client.on_message()
 async def run_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    cmd = message.text.split(None,1)[1]
+    message = update.message
+    if not message or not message.text: return
+    parts = message.text.split(None, 1)
+    if len(parts) < 2: return
+    cmd = parts[1]
     if re.match("(?i)poweroff|halt|shutdown|reboot", cmd):
         res = "You can't use this command"
     else:
@@ -852,7 +871,11 @@ async def run_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 @Client.on_message()
 async def printSS(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = message.text.split()[1]
+    message = update.message
+    if not message or not message.text: return
+    parts = message.text.split()
+    if len(parts) < 2: return
+    text = parts[1]
     try:
         res = await meval(text, globals(), **locals())
     except BaseException:  # skipcq

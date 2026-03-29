@@ -389,3 +389,205 @@ task: <Task pending name='Application:6308413113:update_fetcher' coro=<Applicati
 2026-03-29 20:57:03,603 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getMe "HTTP/1.1 200 OK"
 2026-03-29 20:57:03,815 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/deleteWebhook "HTTP/1.1 200 OK"
 2026-03-29 20:57:03,817 - telegram.ext.Application - INFO - Application started
+2026-03-29 20:57:07,590 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:07,591 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:07,591 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:07,591 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:57:12,169 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:12,170 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:12,170 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:12,170 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:57:16,988 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:16,989 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:16,989 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:16,989 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:57:22,782 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:22,783 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:22,783 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:22,784 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:57:29,507 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:29,508 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:29,508 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:29,508 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:57:38,479 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:38,482 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:38,483 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:38,483 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:57:49,785 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:57:49,786 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:57:49,786 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:57:49,786 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:58:04,902 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:58:04,903 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:58:04,903 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:58:04,903 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:58:17,976 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 20:58:17,977 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 20:58:17,978 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 20:58:17,978 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 20:58:17,979 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 20:58:17,979 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 20:58:17,979 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-29 20:58:17,981 - __main__ - INFO - ======================================================================
+2026-03-29 20:58:17,981 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-29 20:58:17,981 - __main__ - INFO - ======================================================================
+2026-03-29 20:58:17,981 - __main__ - INFO - ✅ TOKEN: 5892582536:AAGnc7hxS...
+2026-03-29 20:58:17,981 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-29 20:58:17,981 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-29 20:58:18,042 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-29 20:58:18,042 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-29 20:58:18,043 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-29 20:58:18,043 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-29 20:58:18,044 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-29 20:58:18,287 - __main__ - INFO - ✅ تم تحميل Plugins.all
+2026-03-29 20:58:18,288 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-29 20:58:18,290 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-29 20:58:18,291 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-29 20:58:18,291 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-29 20:58:18,291 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-29 20:58:18,292 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-29 20:58:18,292 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-29 20:58:18,292 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-29 20:58:18,292 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-29 20:58:18,293 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-29 20:58:18,293 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-29 20:58:18,294 - __main__ - INFO - ✅ تم تحميل Plugins.group_update
+2026-03-29 20:58:18,295 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-29 20:58:18,296 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-29 20:58:18,482 - shazamio_core - INFO - Initializing shazamio_core module
+2026-03-29 20:58:18,482 - shazamio_core - INFO - shazamio_core module initialized successfully
+2026-03-29 20:58:18,620 - shazamio_core - INFO - Recognizer created with segment_duration_seconds = 10
+2026-03-29 20:58:18,620 - __main__ - INFO - ✅ تم تحميل Plugins.downloader
+2026-03-29 20:58:18,621 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-29 20:58:20,705 - __main__ - INFO - ✅ تم تحميل Plugins.private&sudos
+2026-03-29 20:58:20,706 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-29 20:58:20,706 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 20:58:20,706 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-29 20:58:20,706 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 20:58:21,257 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getMe "HTTP/1.1 200 OK"
+2026-03-29 20:58:21,475 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-29 20:58:21,478 - telegram.ext.Application - INFO - Application started
+2026-03-29 20:58:24,718 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:58:24,719 - __main__ - INFO - start_handler triggered: chat=private user=1116907157 text='/start'
+2026-03-29 20:58:24,902 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-29 20:58:25,085 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/sendMessage "HTTP/1.1 400 Bad Request"
+2026-03-29 20:58:25,300 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/sendMessage "HTTP/1.1 200 OK"
+2026-03-29 20:58:25,301 - __main__ - INFO - ✅ المستخدم 1116907157 بدأ البوت
+2026-03-29 20:58:25,302 - __main__ - INFO - private_text_handler triggered: user=1116907157 text='/start'
+2026-03-29 20:58:25,302 - __main__ - ERROR - ❌ حدث خطأ: name 'message' is not defined
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/_application.py", line 1264, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/_handlers/basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/bmqa/Plugins/private&sudos.py", line 119, in to_send
+    if message.text and re.match("^/start hmsa", message.text):
+       ^^^^^^^
+NameError: name 'message' is not defined. Did you mean: 'Message'?
+2026-03-29 20:58:25,305 - __main__ - ERROR - ❌ حدث خطأ: name 'message' is not defined
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/_application.py", line 1264, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/_handlers/basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/bmqa/Plugins/private&sudos.py", line 806, in exec_tio_run_code
+    execlanguage = message.command[1]
+                   ^^^^^^^
+NameError: name 'message' is not defined. Did you mean: 'Message'?
+2026-03-29 20:58:25,307 - __main__ - ERROR - ❌ حدث خطأ: name 'message' is not defined
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/_application.py", line 1264, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/_handlers/basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/bmqa/Plugins/private&sudos.py", line 842, in run_cmd
+    cmd = message.text.split(None,1)[1]
+          ^^^^^^^
+NameError: name 'message' is not defined. Did you mean: 'Message'?
+2026-03-29 20:58:34,903 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:58:45,085 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:58:55,270 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:59:05,460 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:59:15,647 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:59:25,842 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:59:36,031 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:59:46,224 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 20:59:56,420 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:00:06,607 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:00:16,796 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:00:26,991 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:00:37,184 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:00:47,372 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:00:57,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:01:07,760 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:01:17,955 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:01:28,145 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:01:38,337 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:01:48,527 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:01:58,719 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:02:03,988 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:02:03,989 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-03-29 21:02:03,989 - telegram.ext.Application - INFO - Application.stop() complete
+2026-03-29 21:02:03,990 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 21:02:03,990 - __main__ - INFO - 👋 البوت متوقف
+2026-03-29 21:02:03,990 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 21:02:04,896 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 21:02:04,896 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 21:02:04,897 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 21:02:04,897 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 21:02:04,898 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 21:02:04,898 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 21:02:04,898 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-29 21:02:04,900 - __main__ - INFO - ======================================================================
+2026-03-29 21:02:04,900 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-29 21:02:04,900 - __main__ - INFO - ======================================================================
+2026-03-29 21:02:04,900 - __main__ - INFO - ✅ TOKEN: 5892582536:AAGnc7hxS...
+2026-03-29 21:02:04,900 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-29 21:02:04,900 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-29 21:02:04,954 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-29 21:02:04,955 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-29 21:02:04,955 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-29 21:02:04,956 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-29 21:02:04,956 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-29 21:02:05,164 - __main__ - INFO - ✅ تم تحميل Plugins.all
+2026-03-29 21:02:05,165 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-29 21:02:05,165 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-29 21:02:05,166 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-29 21:02:05,166 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-29 21:02:05,166 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-29 21:02:05,167 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-29 21:02:05,167 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-29 21:02:05,167 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-29 21:02:05,167 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-29 21:02:05,168 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-29 21:02:05,168 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-29 21:02:05,169 - __main__ - INFO - ✅ تم تحميل Plugins.group_update
+2026-03-29 21:02:05,170 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-29 21:02:05,171 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-29 21:02:05,398 - shazamio_core - INFO - Initializing shazamio_core module
+2026-03-29 21:02:05,398 - shazamio_core - INFO - shazamio_core module initialized successfully
+2026-03-29 21:02:05,563 - shazamio_core - INFO - Recognizer created with segment_duration_seconds = 10
+2026-03-29 21:02:05,563 - __main__ - INFO - ✅ تم تحميل Plugins.downloader
+2026-03-29 21:02:05,566 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-29 21:02:07,259 - __main__ - INFO - ✅ تم تحميل Plugins.private&sudos
+2026-03-29 21:02:07,259 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-29 21:02:07,259 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 21:02:07,259 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-29 21:02:07,259 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 21:02:07,812 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getMe "HTTP/1.1 200 OK"
+2026-03-29 21:02:08,030 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-29 21:02:08,032 - telegram.ext.Application - INFO - Application started
+2026-03-29 21:02:18,578 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:02:28,762 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-29 21:02:38,946 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
