@@ -215,3 +215,84 @@
 2026-03-29 18:39:41,699 - __main__ - INFO - ════════════════════════════════════════════════════════════════
 2026-03-29 18:39:41,700 - __main__ - INFO - 👋 البوت متوقف
 2026-03-29 18:39:41,701 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 20:52:02,213 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 20:52:02,236 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 20:52:02,257 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 20:52:02,278 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-29 20:52:02,279 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-29 20:52:02,280 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-29 20:52:02,280 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-29 20:52:02,287 - __main__ - INFO - ======================================================================
+2026-03-29 20:52:02,287 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-29 20:52:02,287 - __main__ - INFO - ======================================================================
+2026-03-29 20:52:02,287 - __main__ - INFO - ✅ TOKEN: 6308413113:AAG2KRz3B...
+2026-03-29 20:52:02,287 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-29 20:52:02,287 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-29 20:52:02,351 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-29 20:52:02,352 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-29 20:52:02,357 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-29 20:52:02,357 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-29 20:52:02,370 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-29 20:52:02,754 - __main__ - INFO - ✅ تم تحميل Plugins.all
+2026-03-29 20:52:02,760 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-29 20:52:02,779 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-29 20:52:02,783 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-29 20:52:02,785 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-29 20:52:02,790 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-29 20:52:02,797 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-29 20:52:02,803 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-29 20:52:02,806 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-29 20:52:02,808 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-29 20:52:02,810 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-29 20:52:02,811 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-29 20:52:02,824 - __main__ - INFO - ✅ تم تحميل Plugins.group_update
+2026-03-29 20:52:02,834 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-29 20:52:02,837 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-29 20:52:03,089 - shazamio_core - INFO - Initializing shazamio_core module
+2026-03-29 20:52:03,089 - shazamio_core - INFO - shazamio_core module initialized successfully
+2026-03-29 20:52:03,266 - shazamio_core - INFO - Recognizer created with segment_duration_seconds = 10
+2026-03-29 20:52:03,266 - __main__ - INFO - ✅ تم تحميل Plugins.downloader
+2026-03-29 20:52:03,269 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-29 20:52:05,335 - __main__ - INFO - ✅ تم تحميل Plugins.private&sudos
+2026-03-29 20:52:05,336 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-29 20:52:05,336 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 20:52:05,337 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-29 20:52:05,337 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-29 20:52:05,876 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getMe "HTTP/1.1 200 OK"
+2026-03-29 20:52:06,113 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-29 20:52:06,117 - telegram.ext.Application - INFO - Application started
+2026-03-29 20:52:09,814 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:09,815 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:09,815 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:09,815 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:52:14,369 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:14,370 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:14,370 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:14,370 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:52:19,181 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:19,182 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:19,182 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:19,182 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:52:25,000 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:25,002 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:25,002 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:25,002 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:52:31,689 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:31,690 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:31,690 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:31,690 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:52:40,684 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:40,685 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:40,685 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:40,685 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
+2026-03-29 20:52:51,972 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot6308413113:AAG2KRz3BFmDyD1rEk-ORIjwIQBCstipYUU/getUpdates "HTTP/1.1 409 Conflict"
+2026-03-29 20:52:51,973 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-29 20:52:51,973 - __main__ - ERROR - ❌ حدث خطأ: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+NoneType: None
+2026-03-29 20:52:51,973 - __main__ - CRITICAL - ⚠️ CONFLICT: نسخة أخرى من البوت تعمل!
