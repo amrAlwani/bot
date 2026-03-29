@@ -93,14 +93,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[3]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -161,14 +161,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -233,14 +233,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[3]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -304,14 +304,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -370,14 +370,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -433,14 +433,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -499,14 +499,14 @@ async def ranks_reply_promote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -605,14 +605,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[3]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -656,14 +656,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -713,14 +713,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[3]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -752,14 +752,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -804,14 +804,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -856,14 +856,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -902,14 +902,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
@@ -952,14 +952,14 @@ async def ranks_reply_demote(update, context, k):
            user = text.split()[2]
            if user.startswith('@'):
               try:
-                 get = context.bot.get_chat(user)
+                 get = await context.bot.get_chat(user)
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:
                  return await message.reply_text(f'{k} مافيه عضو بهذا اليوزر')
            else:
               try:
-                 get = context.bot.get_chat(int(user))
+                 get = await context.bot.get_chat(int(user))
                  mention = f'[{get.first_name}](tg://user?id={get.id})'
                  id = get.id
               except:

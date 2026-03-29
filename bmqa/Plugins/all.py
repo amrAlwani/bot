@@ -755,7 +755,7 @@ async def guardResponseFunction(update: Update, context: ContextTypes.DEFAULT_TY
     if (
         r.get(f"{message.chat.id}:lockUrls:{Dev_Zaid}")
         and message.text
-        and len(Find(message.text.html)) > 0
+        and len(Find(message.text_html)) > 0
     ):
         await message.delete()
         warn = True

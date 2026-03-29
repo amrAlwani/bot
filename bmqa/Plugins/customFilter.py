@@ -61,7 +61,7 @@ async def addreply2(update, context, k):
      
      if r.get(f'{chat.id}:addFilter2:{user.id}{Dev_Zaid}') and mod_pls(user.id, chat.id):
        text = r.get(f'{chat.id}:addFilter2:{user.id}{Dev_Zaid}')
-       r.set(f'{text}:filter:{Dev_Zaid}{chat.id}', f'type=text&text={message.text.html}')
+       r.set(f'{text}:filter:{Dev_Zaid}{chat.id}', f'type=text&text={message.text_html}')
        r.set(f'{text}:filtertype:{chat.id}{Dev_Zaid}','نص')
        r.set(f'{text}:filterInfo:{chat.id}{Dev_Zaid}', f'by={user.id}&date={date}')
        r.sadd(f'{chat.id}:FiltersList:{Dev_Zaid}', f'{text}')
@@ -484,7 +484,7 @@ async def addreplyrandom(update, context, k):
    
    if r.get(f'{chat.id}:addFilterR2:{user.id}{Dev_Zaid}') and mod_pls(user.id,chat.id):
      text = r.get(f'{chat.id}:addFilterR2:{user.id}{Dev_Zaid}')
-     r.sadd(f'{text}:randomfilter:{chat.id}{Dev_Zaid}', message.text.html)
+     r.sadd(f'{text}:randomfilter:{chat.id}{Dev_Zaid}', message.text_html)
      return await message.reply_text(f'{k} حلو ضفت هذا الرد\n{k} بس تخلص ارسل تم\nـــــــــــــــــــــــــــــــــــــــــ\n`<USER_ID>` › آيدي المستخدم\n`<USER_NAME>` › اسم المستخدم\n`<USER_USERNAME>` › يوزر المستخدم\n`<USER_MENTION>` › رابط حساب المستخدم\n༄',parse_mode=ParseMode.MARKDOWN)
      
    if text == 'الردود المميزه':

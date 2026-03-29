@@ -159,7 +159,7 @@ async def addreplyg(update, context, k):
    
    if r.get(f'{chat.id}:addFilter2GG:{user.id}{Dev_Zaid}') and dev2_pls(user.id, chat.id):
        text = r.get(f'{chat.id}:addFilter2GG:{user.id}{Dev_Zaid}')
-       r.set(f'{text}:filter:{Dev_Zaid}', f'type=text&text={message.text.html}')
+       r.set(f'{text}:filter:{Dev_Zaid}', f'type=text&text={message.text_html}')
        r.set(f'{text}:filtertype:{Dev_Zaid}','نص')
        r.set(f'{text}:filterInfo:{Dev_Zaid}', f'by={user.id}')
        r.sadd(f'FiltersList:{Dev_Zaid}', f'{text}')
@@ -371,7 +371,7 @@ async def addreplyrandomg(update, context, k):
    
    if r.get(f'{chat.id}:addFilterRG2:{user.id}{Dev_Zaid}') and dev2_pls(user.id,chat.id):
      text = r.get(f'{chat.id}:addFilterRG2:{user.id}{Dev_Zaid}')
-     r.sadd(f'{text}:randomfilter:{Dev_Zaid}', message.text.html)
+     r.sadd(f'{text}:randomfilter:{Dev_Zaid}', message.text_html)
      return await message.reply_text(f'{k} حلو ضفت هذا الرد\n{k} بس تخلص ارسل تم\nـــــــــــــــــــــــــــــــــــــــــ\n`<USER_ID>` › آيدي المستخدم\n`<USER_NAME>` › اسم المستخدم\n`<USER_USERNAME>` › يوزر المستخدم\n`<USER_MENTION>` › رابط حساب المستخدم\n༄',parse_mode=ParseMode.MARKDOWN)
      
    if text == 'الردود المتعدده العامه':

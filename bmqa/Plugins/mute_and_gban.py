@@ -83,14 +83,14 @@ async def mute_func(update, context, k):
           return
       if not dev_pls(user.id,chat.id):
            return await message.reply_text(f'{k} هذا الامر يخص ( المطور وفوق ) بس')      
-      user = text.split()[2]
+      _u = text.split()[2]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          return await message.reply_text(f'{k} مافيه يوزر كذا')
@@ -109,14 +109,14 @@ async def mute_func(update, context, k):
           return
       if not admin_pls(user.id,chat.id):
          return await message.reply_text(f'{k} هذا الامر يخص ( الادمن وفوق ) بس')
-      user = text.split()[1]
+      _u = text.split()[1]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          return await message.reply_text(f'{k} مافيه يوزر كذا')
@@ -148,14 +148,14 @@ async def mute_func(update, context, k):
           return
       if not dev_pls(user.id,chat.id):
            return await message.reply_text(f'{k} هذا الأمر يخص ( Dev²🎖️ وفوق ) بس')
-      user = text.split()[3]
+      _u = text.split()[3]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          id = re.findall('[0-9]+', text)[0] if re.findall('[0-9]+', text) else None
@@ -173,14 +173,14 @@ async def mute_func(update, context, k):
           return
       if not mod_pls(user.id,chat.id):
          return await message.reply_text(f'{k} هذا الامر يخص ( المدير وفوق ) بس')
-      user = text.split()[2]
+      _u = text.split()[2]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          id = re.findall('[0-9]+', text)[0] if re.findall('[0-9]+', text) else None
@@ -197,14 +197,14 @@ async def mute_func(update, context, k):
           return
       if not dev_pls(user.id,chat.id):
            return await message.reply_text(f'{k} هذا الامر يخص ( المطور وفوق ) بس')      
-      user = text.split()[2]
+      _u = text.split()[2]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          return await message.reply_text(f'{k} مافيه يوزر كذا')
@@ -223,14 +223,14 @@ async def mute_func(update, context, k):
           return
       if not dev_pls(user.id,chat.id):
            return await message.reply_text(f'{k} هذا الأمر يخص ( Dev²🎖️ وفوق ) بس')
-      user = text.split()[4]
+      _u = text.split()[4]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          return await message.reply_text(f'{k} مافيه يوزر كذا')
@@ -251,14 +251,14 @@ async def mute_func(update, context, k):
           return
       if not dev_pls(user.id,chat.id):
            return await message.reply_text(f'{k} هذا الأمر يخص ( Dev²🎖️ وفوق ) بس')
-      user = text.split()[5]
+      _u = text.split()[5]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          id = re.findall('[0-9]+', text)[0] if re.findall('[0-9]+', text) else None
@@ -276,14 +276,14 @@ async def mute_func(update, context, k):
           return
       if not dev_pls(user.id,chat.id):
            return await message.reply_text(f'{k} هذا الأمر يخص ( Dev²🎖️ وفوق ) بس')
-      user = text.split()[3]
+      _u = text.split()[3]
       try:
-        id = int(user)
+        id = int(_u)
       except:
-        id = user.replace('@','')
+        id = _u.replace('@','')
       try:
-         get = None
-         mention = f'[{get.first_name}](tg://user?id={get.id})'
+         get = await context.bot.get_chat(id)
+         mention = f'[{get.first_name or get.id}](tg://user?id={get.id})'
          id = get.id
       except:
          id = re.findall('[0-9]+', text)[0] if re.findall('[0-9]+', text) else None

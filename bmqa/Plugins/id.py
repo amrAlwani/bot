@@ -130,7 +130,10 @@ comments = [
 ]
 
 async def addmsgCount(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
+   message = update.message
+   user = update.effective_user
+   chat = update.effective_chat
+   if not message or not user or not chat: return
    if r.get(f'{user.id}:mute:{chat.id}{Dev_Zaid}'):  return
    if not r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}'):
       r.set(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}', 1)
@@ -141,7 +144,10 @@ async def addmsgCount(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 @Client.on_edited_message()
 async def addeditedmsgCount(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
+   message = update.message or update.edited_message
+   user = update.effective_user
+   chat = update.effective_chat
+   if not message or not user or not chat: return
    if r.get(f'{user.id}:mute:{chat.id}{Dev_Zaid}'):  return
    if not r.get(f'{chat.id}:TotalEDMsgs:{user.id}{Dev_Zaid}'):
       r.set(f'{chat.id}:TotalEDMsgs:{user.id}{Dev_Zaid}', 1)
@@ -207,7 +213,7 @@ async def get_my_rank(update, context, k):
      return await message.reply_text(user.first_name, disable_web_page_preview=True)
 
    if text == 'معلوماتي':
-      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}'))
+      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}') or 0)
       if msgs > 50:
         tfa3l = 'شد حيلك'
       if msgs > 500:
@@ -270,32 +276,24 @@ async def get_my_rank(update, context, k):
 
 
    if text == 'المجموعه' or text == 'المجموعة':
-      _ = None  # MTProto GetFullChannel not available in PTB
-      if get.full_chat.exported_invite:
-        link = get.full_chat.exported_invite.link
-      else:
-        link = 'مافي رابط'
-      admins = get.full_chat.admins_count
-      kicked = get.full_chat.kicked_count
-      count = get.full_chat.participants_count
-      if chat.photo:
-        type = 'photo'
-        if chat.username:
-          photo = f'https://t.me/{chat.username}'
-        else:
-          photo = None  # download_media not available in PTB
-      else:
-        type = 'text'
-      text = f'معلومات المجموعة:\n\n{k} الاسم ↢ {chat.title}\n{k} الايدي ↢ {chat.id}\n{k} عدد الاعضاء ↢ ( {count} )\n{k} عدد المشرفين ↢ ( {admins} )\n{k} عدد المحظورين ↢ ( {kicked} )\n{k} الرابط ↢ {link} '
-      if type == 'photo':
-         await message.reply_photo(photo, caption=text)
-         try:
-           os.remove(photo)
-         except:
-           pass
-         return
-      else:
-         return await message.reply_text(text, disable_web_page_preview=True)
+      try:
+        chat_obj = await context.bot.get_chat(chat.id)
+        link = chat_obj.invite_link or 'مافي رابط'
+        admins_list = await context.bot.get_chat_administrators(chat.id)
+        admins = len(admins_list)
+        count = chat_obj.get_member_count if callable(getattr(chat_obj, 'get_member_count', None)) else '؟'
+        try:
+          count = await context.bot.get_chat_member_count(chat.id)
+        except:
+          count = '؟'
+        info_text = f'معلومات المجموعة:\n\n{k} الاسم ↢ {chat.title}\n{k} الايدي ↢ {chat.id}\n{k} عدد الاعضاء ↢ ( {count} )\n{k} عدد المشرفين ↢ ( {admins} )\n{k} الرابط ↢ {link} '
+        if chat.photo:
+          if chat.username:
+            return await message.reply_photo(f'https://t.me/{chat.username}', caption=info_text)
+        return await message.reply_text(info_text, disable_web_page_preview=True)
+      except Exception as e:
+        print(e)
+        return await message.reply_text(f'{k} مافي معلومات للمجموعة')
 
    if text == 'جهاتي':
      if not r.get(f'{chat.id}TotalContacts{user.id}{Dev_Zaid}'):
@@ -374,7 +372,7 @@ async def get_my_rank(update, context, k):
       await message.reply_text(f'{k} رتبتك ↢ {rank}')
 
    if text == 'مسح رسائلي' or text == 'مسح رسايلي':
-      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}'))
+      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}') or 0)
       r.delete(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}')
       return await message.reply_text(f'{k} ابشر مسحت ( {msgs} ) من رسائلك')
 
@@ -392,11 +390,11 @@ async def get_my_rank(update, context, k):
       return await message.reply_text(f'{k} عدد تكليجاتك ↢ {msgs}')
 
    if text == 'رسايلي' or text == 'رسائلي':
-      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}'))
+      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}') or 0)
       return await message.reply_text(f'{k} عدد رسايلك ↢ {msgs}')
       
    if (text == 'رسايله' or text == 'رسائلة') and message.reply_to_message and message.reply_to_message.from_user:
-      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{message.reply_to_message.from_user.id}'))
+      msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{message.reply_to_message.from_user.id}') or 0)
       return await message.reply_text(f'{k} عدد رسايله ↢ {msgs}')
 
 
@@ -404,35 +402,46 @@ async def get_my_rank(update, context, k):
 
    if text == 'رتبته' and message.reply_to_message and message.reply_to_message.from_user:
       rank = get_rank(message.reply_to_message.from_user.id, chat.id)
-      status = chat.get_member(message.reply_to_message.from_user.id).status
+      try:
+        _cm = await context.bot.get_chat_member(chat.id, message.reply_to_message.from_user.id)
+        status = _cm.status
+      except:
+        status = None
       if status == ChatMemberStatus.OWNER:
         rank2 = 'المالك'
-      if status == ChatMemberStatus.ADMINISTRATOR:
+      elif status == ChatMemberStatus.ADMINISTRATOR:
         rank2 = 'مشرف'
-      if status == ChatMemberStatus.RESTRICTED:
+      elif status == ChatMemberStatus.RESTRICTED:
         rank2 = 'مقيد'
-      if status == ChatMemberStatus.LEFT:
+      elif status == ChatMemberStatus.LEFT:
         rank2 = 'طالع'
-      if status == ChatMemberStatus.MEMBER:
+      elif status == ChatMemberStatus.MEMBER:
         rank2 = 'عضو'
-      if status == ChatMemberStatus.BANNED:
+      elif status == ChatMemberStatus.BANNED:
         rank2 = 'لاقم حظر'
+      else:
+        rank2 = 'غير معروف'
       await message.reply_text(f'رتبته:\n{k} في البوت ( {rank} )\n{k} في المجموعة ( {rank2} )\n-')
 
    if text == 'نقل ملكية' or text == 'نقل ملكيه':
      if r.get(f'{chat.id}:rankGOWNER:{user.id}{Dev_Zaid}'):
-       status = chat.get_member(user.id).status
+       try:
+         _cm = await context.bot.get_chat_member(chat.id, user.id)
+         status = _cm.status
+       except:
+         status = None
        if status == ChatMemberStatus.OWNER:
           return await message.reply_text(f'{k} انت مالك القروب')
        else:
-          for member in chat.get_members(filter=ChatMembersFilter.ADMINISTRATORS):
+          admins = await context.bot.get_chat_administrators(chat.id)
+          for member in admins:
             if member.status == ChatMemberStatus.OWNER:
-              if member.user.is_deleted:
+              if getattr(member.user, 'is_deleted', False):
                 return await message.reply_text(f'{k} حساب المالك محذوف')
               else:
                 r.delete(f'{chat.id}:rankGOWNER:{user.id}{Dev_Zaid}')
                 r.srem(f'{chat.id}:listGOWNER:{Dev_Zaid}', user.id)
-                r.set(f'{chat.id}:rankGOWNER:{member.user.id}{Dev_Zaid}')
+                r.set(f'{chat.id}:rankGOWNER:{member.user.id}{Dev_Zaid}', 1)
                 r.sadd(f'{chat.id}:listGOWNER:{Dev_Zaid}', member.user.id)
                 return await message.reply_text(f'「 {member.user.mention_html()} 」\n{k} نقلت له ملكية المجموعة')
 
@@ -453,19 +462,23 @@ async def get_my_rank(update, context, k):
        return await message.reply_text(f"{k} ابشر مسحت توب القروبات")
 
    if text == "ترتيبي" or text == "تفاعلي":
-     users = r.keys(f"{Dev_Zaid}{chat.id}:TotalMsgs:*")
+     _uid = user.id
+     users_keys = r.keys(f"{Dev_Zaid}{chat.id}:TotalMsgs:*")
      jj = []
-     for user in users:
+     for _ukey in users_keys:
           try:
-            id = int(user.split("TotalMsgs:")[1])
-            msgs = r.get(user)
-            jj.append({"id": id, "msgs": int(msgs)})
+            _uid2 = int(_ukey.split("TotalMsgs:")[1])
+            _msgs = r.get(_ukey)
+            jj.append({"id": _uid2, "msgs": int(_msgs)})
           except:
             pass
      top = get_top(jj)
      ids = [i["id"] for i in top]
-     rank = ids.index(user.id) + 1
-     msgs = int(r.get(f"{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}"))
+     try:
+       rank = ids.index(_uid) + 1
+     except ValueError:
+       rank = '؟'
+     msgs = int(r.get(f"{Dev_Zaid}{chat.id}:TotalMsgs:{_uid}") or 0)
      return await message.reply_text(f"{k} ترتيبك بالمتفاعلين ↢ {rank}\n{k} رسائلك بالتفاعل ↢ {msgs:,}\n-")
 
    if text == "المتفاعلين" or text == "توب المتفاعلين":
@@ -489,7 +502,7 @@ async def get_my_rank(update, context, k):
             emoji = get_emoji_bank(count)
             text += f"{emoji}{i['msgs']:,} l [{i['name']}](tg://user?id={i['id']})\n"
             count +=1
-        return await context.bot.send_message(chat.id, text, disable_web_page_preview=True, reply_to_message_id=message.id)
+        return await context.bot.send_message(chat.id, text, disable_web_page_preview=True, reply_to_message_id=message.message_id)
 
    if text == "القروبات" or text == "توب القروبات":
         groups = r.keys(f"{Dev_Zaid}:TotalGroupMsgs:*")
@@ -517,37 +530,40 @@ async def get_my_rank(update, context, k):
             response_text += f"{emoji}{group['msgs']:,} l {group['group_title']}\n"
             count += 1
 
-        return await context.bot.send_message(chat.id, response_text, disable_web_page_preview=True, reply_to_message_id=message.id)
+        return await context.bot.send_message(chat.id, response_text, disable_web_page_preview=True, reply_to_message_id=message.message_id)
 
 
    if text == 'كشف' and message.reply_to_message and message.reply_to_message.from_user:
        try:
-           get = chat.get_member(message.reply_to_message.from_user.id)
-           rank = get_rank(message.reply_to_message.from_user.id, chat.id)
+           _rid = message.reply_to_message.from_user.id
+           _cm = await context.bot.get_chat_member(chat.id, _rid)
+           rank = get_rank(_rid, chat.id)
            name = message.reply_to_message.from_user.first_name
-           msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{message.reply_to_message.from_user.id}'))
-           id = message.reply_to_message.from_user.id
+           msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{_rid}') or 0)
+           id = _rid
            if message.reply_to_message.from_user.username:
                username = f'@{message.reply_to_message.from_user.username}'
-           elif message.reply_to_message.from_user.usernames:
+           elif getattr(message.reply_to_message.from_user, 'usernames', None):
                username = ''
                for i in message.reply_to_message.from_user.usernames: username += f"@{i.username} "
            else:
                username = 'مافي يوزر'
-           status = chat.get_member(message.reply_to_message.from_user.id).status
+           status = _cm.status
            if status == ChatMemberStatus.OWNER:
                rank2 = 'المالك'
-           if status == ChatMemberStatus.ADMINISTRATOR:
+           elif status == ChatMemberStatus.ADMINISTRATOR:
                rank2 = 'مشرف'
-           if status == ChatMemberStatus.RESTRICTED:
+           elif status == ChatMemberStatus.RESTRICTED:
                rank2 = 'مقيد'
-           if status == ChatMemberStatus.LEFT:
+           elif status == ChatMemberStatus.LEFT:
                rank2 = 'طالع'
-           if status == ChatMemberStatus.MEMBER:
+           elif status == ChatMemberStatus.MEMBER:
                rank2 = 'عضو'
-           if status == ChatMemberStatus.BANNED:
+           elif status == ChatMemberStatus.BANNED:
                rank2 = 'لاقم حظر'
-           text = f'''
+           else:
+               rank2 = 'غير معروف'
+           _txt = f'''
 {k} الاسم ↢ {name}
 {k} الايدي ↢ {id}
 {k} اليوزر : ( {username} ) 
@@ -557,58 +573,54 @@ async def get_my_rank(update, context, k):
 {k} نوع الكشف ↢ بالرد
 -
 '''
-           return await message.reply_text(text, disable_web_page_preview=True)
+           return await message.reply_text(_txt, disable_web_page_preview=True)
        except:
            return await message.reply_text(f'{k} العضو مو بالمجموعة')
 
-   if text.startswith('كشف') and len(text.split()) > 1 and 'tg://user?id=' in message.text.html:
-       print(message.text.html)
-       user = user = int(re.search(r'href="([^"]+)', message.text.html).group(1).split('=')[1])
-       ks = 'بالمنشن'
-       try:
-           get = chat.get_member(user)
-           name = get.user.first_name
-           id = get.user.id
-           msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{get.user.id}'))
-           if get.user.username:
-               username = f'@{get.user.username}'
-           elif get.user.usernames:
-               username = ""
-               for i in get.user.usernames: username += f"@{i.username} "
-           else:
-               username = 'ماعنده يوزر'
-           status = get.status
-           if status == ChatMemberStatus.OWNER:
-               rank = 'المالك'
-           if status == ChatMemberStatus.ADMINISTRATOR:
-               rank = 'مشرف'
-           if status == ChatMemberStatus.RESTRICTED:
-               rank = 'مقيد'
-           if status == ChatMemberStatus.LEFT:
-               rank = 'طالع'
-           if status == ChatMemberStatus.MEMBER:
-               rank = 'عضو'
-           if status == ChatMemberStatus.BANNED:
-               rank = 'لاقم حظر'
-       except:
-           rank = 'طالع'
+   if text.startswith('كشف') and len(text.split()) > 1 and message.entities:
+       _mention_id = None
+       for ent in message.entities:
+           if ent.type == 'text_mention' and ent.user:
+               _mention_id = ent.user.id
+               break
+       if _mention_id is None:
+           pass
+       else:
+           ks = 'بالمنشن'
            try:
-               get = await context.bot.get_chat(user)
-               name = get.first_name
-               id = get.id
-               msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{get.id}'))
-               if get.user.username:
-                   username = f'@{get.user.username}'
-               if get.user.usernames:
-                   username = ""
-                   for i in get.user.usernames: username += f"@{i.username} "
+               _cm = await context.bot.get_chat_member(chat.id, _mention_id)
+               name = _cm.user.first_name
+               id = _cm.user.id
+               msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{id}') or 0)
+               username = f'@{_cm.user.username}' if _cm.user.username else 'ماعنده يوزر'
+               status = _cm.status
+               if status == ChatMemberStatus.OWNER:
+                   rank = 'المالك'
+               elif status == ChatMemberStatus.ADMINISTRATOR:
+                   rank = 'مشرف'
+               elif status == ChatMemberStatus.RESTRICTED:
+                   rank = 'مقيد'
+               elif status == ChatMemberStatus.LEFT:
+                   rank = 'طالع'
+               elif status == ChatMemberStatus.MEMBER:
+                   rank = 'عضو'
+               elif status == ChatMemberStatus.BANNED:
+                   rank = 'لاقم حظر'
                else:
-                   username = 'ماعنده يوزر'
-           except Exception as e:
-               print(e)
-               return
-       rank2 = get_rank(id, chat.id)
-       text = f'''
+                   rank = 'غير معروف'
+           except:
+               rank = 'طالع'
+               try:
+                   get = await context.bot.get_chat(_mention_id)
+                   name = get.first_name or str(get.id)
+                   id = get.id
+                   msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{get.id}') or 0)
+                   username = f'@{get.username}' if get.username else 'ماعنده يوزر'
+               except Exception as e:
+                   print(e)
+                   return
+           rank2 = get_rank(id, chat.id)
+           _txt = f'''
 {k} الاسم ↢ {name}
 {k} الايدي ↢{id}
 {k} اليوزر : ↢ ( {username} )
@@ -618,59 +630,49 @@ async def get_my_rank(update, context, k):
 {k} نوع الكشف ↢ {ks}
 -
         '''
-       return await message.reply_text(text, disable_web_page_preview=True)
+           return await message.reply_text(_txt, disable_web_page_preview=True)
 
    if text.startswith('كشف') and len(text.split()) == 2:
        try:
-           user = int(text.split()[1])
+           _u = int(text.split()[1])
            ks = 'بالايدي'
        except:
-           user = text.split()[1].replace('@', '')
+           _u = text.split()[1].replace('@', '')
            ks = 'باليوزر'
        try:
-           get = chat.get_member(user)
-           name = get.user.first_name
-           id = get.user.id
-           msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{get.user.id}'))
-           if get.user.username:
-               username = f'@{get.user.username}'
-           elif get.user.usernames:
-               username = ""
-               for i in get.user.usernames: username += f"@{i.username} "
-           else:
-               username = 'ماعنده يوزر'
-           status = get.status
+           _cm = await context.bot.get_chat_member(chat.id, _u)
+           name = _cm.user.first_name
+           id = _cm.user.id
+           msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{_cm.user.id}') or 0)
+           username = f'@{_cm.user.username}' if _cm.user.username else 'ماعنده يوزر'
+           status = _cm.status
            if status == ChatMemberStatus.OWNER:
                rank = 'المالك'
-           if status == ChatMemberStatus.ADMINISTRATOR:
+           elif status == ChatMemberStatus.ADMINISTRATOR:
                rank = 'مشرف'
-           if status == ChatMemberStatus.RESTRICTED:
+           elif status == ChatMemberStatus.RESTRICTED:
                rank = 'مقيد'
-           if status == ChatMemberStatus.LEFT:
+           elif status == ChatMemberStatus.LEFT:
                rank = 'طالع'
-           if status == ChatMemberStatus.MEMBER:
+           elif status == ChatMemberStatus.MEMBER:
                rank = 'عضو'
-           if status == ChatMemberStatus.BANNED:
+           elif status == ChatMemberStatus.BANNED:
                rank = 'لاقم حظر'
+           else:
+               rank = 'غير معروف'
        except:
            rank = 'طالع'
            try:
-               get = await context.bot.get_chat(user)
-               name = get.first_name
+               get = await context.bot.get_chat(_u)
+               name = get.first_name or str(get.id)
                id = get.id
-               msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{get.id}'))
-               if get.user.username:
-                   username = f'@{get.user.username}'
-               if get.user.usernames:
-                   username = ""
-                   for i in get.user.usernames: username += f"@{i.username} "
-               else:
-                   username = 'ماعنده يوزر'
+               msgs = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{get.id}') or 0)
+               username = f'@{get.username}' if get.username else 'ماعنده يوزر'
            except Exception as e:
                print(e)
                return
        rank2 = get_rank(id, chat.id)
-       text = f'''
+       _txt = f'''
 {k} الاسم ↢ {name}
 {k} الايدي ↢{id}
 {k} اليوزر : ↢ ( {username} )
@@ -680,25 +682,27 @@ async def get_my_rank(update, context, k):
 {k} نوع الكشف ↢ {ks}
 -
         '''
-       return await message.reply_text(text, disable_web_page_preview=True)
+       return await message.reply_text(_txt, disable_web_page_preview=True)
 
 
    if text == 'صلاحياته' and message.reply_to_message and message.reply_to_message.from_user:
-      get = chat.get_member(message.reply_to_message.from_user.id)
-      if not get.status in [ChatMemberStatus.ADMINISTRATOR,ChatMemberStatus.OWNER]:
+      try:
+        get = await context.bot.get_chat_member(chat.id, message.reply_to_message.from_user.id)
+      except:
+        return await message.reply_text(f'{k} ما قدرت أجيب معلوماته')
+      if get.status not in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
          return await message.reply_text(f'{k} هو العضو وما عنده صلاحيات')
       if get.status == ChatMemberStatus.OWNER:
          return await message.reply_text(f'{k} هو المالك وعنده كل الصلاحيات')
       if get.status == ChatMemberStatus.ADMINISTRATOR:
-         p = get.privileges
-         p1 = "✔️" if p.can_manage_chat else "✖️"
-         p2 = "✔️" if p.can_delete_messages else "✖️"
-         p3 = "✔️" if p.can_manage_video_chats else "✖️"
-         p4 = "✔️" if p.can_restrict_members else "✖️"
-         p5 = "✔️" if p.can_promote_members else "✖️"
-         p6 = "✔️" if p.can_change_info else "✖️"
-         p7 = "✔️" if p.can_pin_messages else "✖️"
-         text = f'''
+         p1 = "✔️" if getattr(get, 'can_manage_chat', False) else "✖️"
+         p2 = "✔️" if getattr(get, 'can_delete_messages', False) else "✖️"
+         p3 = "✔️" if getattr(get, 'can_manage_video_chats', False) else "✖️"
+         p4 = "✔️" if getattr(get, 'can_restrict_members', False) else "✖️"
+         p5 = "✔️" if getattr(get, 'can_promote_members', False) else "✖️"
+         p6 = "✔️" if getattr(get, 'can_change_info', False) else "✖️"
+         p7 = "✔️" if getattr(get, 'can_pin_messages', False) else "✖️"
+         _txt = f'''
 {k} هو مشرف وهذي صلاحياته :
 
 1) - ادارة المجموعة ↼ ( {p1} )
@@ -711,24 +715,26 @@ async def get_my_rank(update, context, k):
 
 
 '''
-         return await message.reply_text(text)
+         return await message.reply_text(_txt)
 
    if text == 'صلاحياتي':
-      get = chat.get_member(user.id)
-      if not get.status in [ChatMemberStatus.ADMINISTRATOR,ChatMemberStatus.OWNER]:
+      try:
+        get = await context.bot.get_chat_member(chat.id, user.id)
+      except:
+        return await message.reply_text(f'{k} ما قدرت أجيب معلوماتك')
+      if get.status not in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
          return await message.reply_text(f'{k} انت العضو وماعندك صلاحيات')
       if get.status == ChatMemberStatus.OWNER:
          return await message.reply_text(f'{k} انت المالك وعندك كل الصلاحيات')
       if get.status == ChatMemberStatus.ADMINISTRATOR:
-         p = get.privileges
-         p1 = "✔️" if p.can_manage_chat else "✖️"
-         p2 = "✔️" if p.can_delete_messages else "✖️"
-         p3 = "✔️" if p.can_manage_video_chats else "✖️"
-         p4 = "✔️" if p.can_restrict_members else "✖️"
-         p5 = "✔️" if p.can_promote_members else "✖️"
-         p6 = "✔️" if p.can_change_info else "✖️"
-         p7 = "✔️" if p.can_pin_messages else "✖️"
-         text = f'''
+         p1 = "✔️" if getattr(get, 'can_manage_chat', False) else "✖️"
+         p2 = "✔️" if getattr(get, 'can_delete_messages', False) else "✖️"
+         p3 = "✔️" if getattr(get, 'can_manage_video_chats', False) else "✖️"
+         p4 = "✔️" if getattr(get, 'can_restrict_members', False) else "✖️"
+         p5 = "✔️" if getattr(get, 'can_promote_members', False) else "✖️"
+         p6 = "✔️" if getattr(get, 'can_change_info', False) else "✖️"
+         p7 = "✔️" if getattr(get, 'can_pin_messages', False) else "✖️"
+         _txt = f'''
 {k} انت مشرف وهذي صلاحياتك :
 
 1) - ادارة المجموعة ↼ ( {p1} )
@@ -741,7 +747,7 @@ async def get_my_rank(update, context, k):
 
 
 '''
-         return await message.reply_text(text)
+         return await message.reply_text(_txt)
 
 
    if r.get(f'{chat.id}:addCustomID:{user.id}{Dev_Zaid}') and text == 'الغاء':
@@ -923,7 +929,11 @@ async def get_my_rank(update, context, k):
          return await message.reply_text(f'{k} بواسطة ↤ {user.mention_html()}\n{k} ابشر فعلت الايدي بالصوره')
 
    if text == "لقبي":
-     title = chat.get_member(user.id).custom_title
+     try:
+       _cm = await context.bot.get_chat_member(chat.id, user.id)
+       title = getattr(_cm, 'custom_title', None)
+     except:
+       title = None
      if not title:
        return await message.reply_text(f"{k} ماعندك لقب")
      else:
@@ -956,33 +966,33 @@ async def get_my_rank(update, context, k):
       else:
          username = 'مافي يوزر'
       rank = get_rank(user.id, chat.id)
-      msg = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}'))
+      msg = int(r.get(f'{Dev_Zaid}{chat.id}:TotalMsgs:{user.id}') or 0)
       msgs = f"{msg}"
       iD = f'`{user.id}`'
       if not r.get(f'{chat.id}:TotalEDMsgs:{user.id}{Dev_Zaid}'):
          edits = 0
       else:
-         edit= int(r.get(f'{chat.id}:TotalEDMsgs:{user.id}{Dev_Zaid}'))
+         edit = int(r.get(f'{chat.id}:TotalEDMsgs:{user.id}{Dev_Zaid}') or 0)
          edits = f"{edit}"
       name = user.first_name
       create = get_creation_date(user.id)
-      get_chat = await context.bot.get_chat(user.id)
-      if get_chat.bio :
-         bio = get_chat.bio
-      else:
-         bio = 'مافي بايو'
-      if msg > 50:
-        tfa3l = 'شد حيلك'
-      if msg > 500:
-        tfa3l = 'يجي منك'
-      if msg > 750:
-        tfa3l = 'تفاعل متوسط'
-      if msg > 2500:
-        tfa3l = 'متفاعل'
-      if msg > 5000:
-        tfa3l = 'اسطورة التفاعل'
+      try:
+        get_chat = await context.bot.get_chat(user.id)
+        bio = get_chat.bio or 'مافي بايو'
+      except:
+        bio = 'مافي بايو'
       if msg > 10000:
         tfa3l = 'اسطورة التلي'
+      elif msg > 5000:
+        tfa3l = 'اسطورة التفاعل'
+      elif msg > 2500:
+        tfa3l = 'متفاعل'
+      elif msg > 750:
+        tfa3l = 'تفاعل متوسط'
+      elif msg > 500:
+        tfa3l = 'يجي منك'
+      elif msg > 50:
+        tfa3l = 'شد حيلك'
       else:
         tfa3l = 'تفاعل صفر'
       comment = random.choice(comments)
@@ -991,50 +1001,28 @@ async def get_my_rank(update, context, k):
          return await message.reply_text(text, disable_web_page_preview=True)
       else:
          if user.photo:
-           _ = None  # MTProto GetFullUser not available in PTB
-           photo = get_user.full_user.profile_photo
-           video = photo.video_sizes
-           if video:
-             if len(video) == 3:
-               video = video[-2]
-             else:
-               video = video[-1]
-           if video:
-              file = BytesIO()
-              hash = photo.access_hash
-              if r.get(f"{hash}:{user.id}"):
-                return await message.reply_animation(r.get(f"{hash}:{user.id}"), caption=text)
-              for byte in []:  # stream_media not available in PTB
-                file.write(byte)
-              file.name = f'{user.id}vid{chat.id}.mp4'
-              send = message.reply_animation(file, caption=text)
-              r.set(f"{hash}:{user.id}",send.animation.file_id,ex=3600)
-              return True
-           else:
-              file_id=FileId(
-                        file_type=FileType.PHOTO,
-                        dc_id=photo.dc_id,
-                        media_id=photo.id,
-                        access_hash=photo.access_hash,
-                        file_reference=photo.file_reference,
-                        thumbnail_source=ThumbnailSource.THUMBNAIL,
-                        thumbnail_file_type=FileType.PHOTO,
-                        thumbnail_size=photo.sizes[0].type,
-                        volume_id=0,
-                        local_id=0
-                    ).encode()
-              return await message.reply_photo(file_id, caption=text)
-         else:
-           return await message.reply_text(text, disable_web_page_preview=True)
+           try:
+             _photos = await context.bot.get_user_profile_photos(user.id, limit=1)
+             if _photos.total_count > 0:
+               photo_file_id = _photos.photos[0][-1].file_id
+               return await message.reply_photo(photo_file_id, caption=text)
+           except:
+             pass
+         return await message.reply_text(text, disable_web_page_preview=True)
 
 
 async def addContact(update: Update, context: ContextTypes.DEFAULT_TYPE):
-  for me in message.new_chat_members:
+  message = update.message
+  user = update.effective_user
+  chat = update.effective_chat
+  if not message or not user or not chat: return
+  new_members = message.new_chat_members or []
+  for me in new_members:
     if not user.id == me.id:
       if not r.get(f'{chat.id}TotalContacts{user.id}{Dev_Zaid}'):
         r.set(f'{chat.id}TotalContacts{user.id}{Dev_Zaid}',1)
       else:
-        co = int(r.get(f'{chat.id}TotalContacts{user.id}{Dev_Zaid}'))
+        co = int(r.get(f'{chat.id}TotalContacts{user.id}{Dev_Zaid}') or 0)
         r.set(f'{chat.id}TotalContacts{user.id}{Dev_Zaid}',co+1)
 
 
