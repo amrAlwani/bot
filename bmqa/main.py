@@ -19,13 +19,15 @@ from telegram.ext import (
 from telegram.constants import ParseMode
 from telegram.error import Conflict as TelegramConflict
 
+_handlers = [logging.StreamHandler()]
+try:
+    _handlers.append(logging.FileHandler('bot.log', encoding='utf-8'))
+except Exception:
+    pass
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('bot.log', encoding='utf-8'),
-        logging.StreamHandler()
-    ]
+    handlers=_handlers
 )
 logger = logging.getLogger(__name__)
 
@@ -448,7 +450,6 @@ def main():
     try:
         if sys.platform == 'win32' and hasattr(asyncio, 'WindowsSelectorEventLoopPolicy'):
             asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-        asyncio.set_event_loop(asyncio.new_event_loop())
 
         defaults = Defaults(parse_mode=ParseMode.HTML)
         async def post_init(application):
