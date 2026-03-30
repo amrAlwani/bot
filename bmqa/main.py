@@ -503,7 +503,7 @@ def main():
             ("Plugins.sarhni",            "register"),
             ("Plugins.downloader",        "register"),
             ("Plugins.whisper",           "register"),
-            ("Plugins.private&sudos",     "register"),
+            ("Plugins.private_sudos",     "register"),
         ]
 
         import importlib
