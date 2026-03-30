@@ -49,6 +49,12 @@ class DummyRedis:
                     removed += 1
         return removed
 
+    def hlen(self, name):
+        return len(self.hashes.get(name, {}))
+
+    def hkeys(self, name):
+        return list(self.hashes.get(name, {}).keys())
+
     def smembers(self, name):
         return set(self.sets.get(name, set()))
 
@@ -68,6 +74,10 @@ class DummyRedis:
                     self.sets[name].discard(sv)
                     removed += 1
         return removed
+
+    def scard(self, name):
+        """إرجاع عدد العناصر في المجموعة (set)"""
+        return len(self.sets.get(name, set()))
 
     def exists(self, key):
         return key in self.store or key in self.hashes or key in self.sets
@@ -108,11 +118,73 @@ class DummyRedis:
 try:
     r = redis.Redis("localhost", decode_responses=True)
     r.ping()
+
 except Exception as e:
     print(f"Redis not available: {e}")
-    r = DummyRedis()
+    # استخدم wsdb (kvsqlite) كبديل دائم
+    from kvsqlite.sync import Client as DB
+    wsdb = DB("wsdb.sqlite")
+    class WSDBRedis:
+        def get(self, key):
+            return wsdb.get(key)
+        def set(self, key, value, ex=None):
+            wsdb.set(key, value)
+            return True
+        def delete(self, *keys):
+            for key in keys:
+                wsdb.delete(key)
+            return True
+        def sadd(self, name, *values):
+            s = set(wsdb.get(name) or [])
+            for v in values:
+                s.add(str(v))
+            wsdb.set(name, list(s))
+            return len(values)
+        def smembers(self, name):
+            return set(wsdb.get(name) or [])
+        def sismember(self, name, value):
+            return str(value) in set(wsdb.get(name) or [])
+        def srem(self, name, *values):
+            s = set(wsdb.get(name) or [])
+            for v in values:
+                s.discard(str(v))
+            wsdb.set(name, list(s))
+            return True
+        def exists(self, key):
+            return wsdb.get(key) is not None
+        def keys(self, pattern="*"):
+            # kvsqlite لا يدعم الأنماط، نعيد كل المفاتيح
+            return wsdb.keys()
 
-TOKEN = os.environ.get("BOT_TOKEN", "5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY")
+        # Hash methods
+        def hgetall(self, name):
+            return dict(wsdb.get(name) or {})
+        def hget(self, name, key):
+            d = wsdb.get(name) or {}
+            return d.get(key)
+        def hset(self, name, key, value):
+            d = wsdb.get(name) or {}
+            d[key] = str(value)
+            wsdb.set(name, d)
+            return 1
+        def hdel(self, name, *keys):
+            d = wsdb.get(name) or {}
+            removed = 0
+            for key in keys:
+                if key in d:
+                    del d[key]
+                    removed += 1
+            wsdb.set(name, d)
+            return removed
+        def hlen(self, name):
+            d = wsdb.get(name) or {}
+            return len(d)
+        def hkeys(self, name):
+            d = wsdb.get(name) or {}
+            return list(d.keys())
+    r = WSDBRedis()
+
+TOKEN = os.environ.get("BOT_TOKEN", "")
 if not TOKEN:
     raise RuntimeError(
         "BOT_TOKEN environment variable is not set. "
