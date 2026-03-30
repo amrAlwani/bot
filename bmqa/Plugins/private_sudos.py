@@ -140,14 +140,14 @@ async def to_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
       rep = await message.reply_text("جار الاذاعة..")
       for user in users:
          try:
-            await message.copy(int(user))
+            await message.copy_to(int(user))
             count+=1
-         except errors.FloodWait as f:
-            await asyncio.sleep(f.value)
+         except RetryAfter as f:
+            await asyncio.sleep(f.retry_after)
          except:
             failed+=1
             pass
-      return await rep.edit(f"{k} اذاعة ناجحة {count}")
+      return await rep.edit_text(f"{k} اذاعة ناجحة {count}")
    
    k = r.get(f'{Dev_Zaid}:botkey') or '☆'
    if r.get(f'{chat.id}:gpBroadcast:{user.id}{Dev_Zaid}') and dev2_pls(user.id,chat.id):
@@ -160,14 +160,14 @@ async def to_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
       rep = await message.reply_text("جار الاذاعة..")
       for chat in chats:
          try:
-            await message.copy(int(chat))
+            await message.copy_to(int(chat))
             count+=1
-         except errors.FloodWait as f:
-            await asyncio.sleep(f.value)
+         except RetryAfter as f:
+            await asyncio.sleep(f.retry_after)
          except:
             failed+=1
             pass
-      return await rep.edit(f"{k} اذاعة ناجحة {count}")
+      return await rep.edit_text(f"{k} اذاعة ناجحة {count}")
       
    get = wsdb.get(f"hmsa-{user.id}")
    if get:
@@ -336,12 +336,11 @@ async def private_func(update, context, k):
   if text.startswith(". "):
      text = text.split(None,1)[1]
      msg = await message.reply_text("...", quote=True)
-     try: message.reply_chat_action(ChatAction.TYPING)
-     except Exception as e: print(e);pass
-     rep = requests.get(f"https://gptzaid.zaidbot.repl.co/1/text={text}").text
-     try: message.reply_chat_action(ChatAction.TYPING)
-     except Exception as e: print(e);pass
-     msg.edit(rep)
+     try:
+         rep = requests.get(f"https://gptzaid.zaidbot.repl.co/1/text={text}").text
+         await msg.edit_text(rep)
+     except Exception as e:
+         print(e)
      
 async def sudosCommandsHandler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     k = r.get(f'{Dev_Zaid}:botkey') or '☆'
@@ -349,11 +348,12 @@ async def sudosCommandsHandler(update: Update, context: ContextTypes.DEFAULT_TYP
     await SudosCommandsFunc(update, context, k, r, channel)
 
 async def SudosCommandsFunc(update, context, k,r,channel):
-   message = update.message or update.callback_query
+   message = update.message
    chat = update.effective_chat
    user = update.effective_user
-   if not chat: return
+   if not message or not chat: return
    if not user:  return
+   if not message.text: return
    if not chat.type == ChatType.PRIVATE:
       if not r.get(f'{chat.id}:enable:{Dev_Zaid}'):
         return
@@ -801,8 +801,16 @@ async def executor(client, message):
    
    
    
-langslist = tio.query_languages() if tio else []
+langslist = []
 langs_list_link = "https://amanoteamessage.com/etc/langs.html"
+
+def _load_tio_langs():
+    global langslist
+    try:
+        if tio and not langslist:
+            langslist = tio.query_languages()
+    except Exception:
+        langslist = []
 
 strings_tio = {
   "code_exec_tio_res_string_no_err": "<b>Language:</b> <code>{langformat}</code>\n\n<b>Code:</b>\n<code>{codeformat}</code>\n\n<b>Results:</b>\n<code>{resformat}</code>\n\n<b>Stats:</b><code>{statsformat}</code>",
@@ -815,7 +823,10 @@ strings_tio = {
 @Client.on_message()
 async def exec_tio_run_code(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message
+    user = update.effective_user
     if not message or not message.text: return
+    if not user or not dev2_pls(user.id, user.id): return
+    _load_tio_langs()
     parts = message.text.split(None, 2)
     if len(parts) < 3: return
     execlanguage = parts[1]
@@ -855,18 +866,17 @@ async def exec_tio_run_code(update: Update, context: ContextTypes.DEFAULT_TYPE):
 @Client.on_message()
 async def run_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message
+    user = update.effective_user
     if not message or not message.text: return
+    if not user or not devp_pls(user.id, user.id): return
     parts = message.text.split(None, 1)
     if len(parts) < 2: return
     cmd = parts[1]
     if re.match("(?i)poweroff|halt|shutdown|reboot", cmd):
         res = "You can't use this command"
     else:
-        stdout, stderr = await shell_exec(cmd)
-
-        res = (
-            f"<b>Output:</b>\n<code>{html.escape(stdout)}</code>" if stdout else ""
-        ) + (f"\n<b>Errors:</b>\n<code>{stderr}</code>" if stderr else "")
+        stdout, _ = await shell_exec(cmd)
+        res = f"<b>Output:</b>\n<code>{html.escape(stdout)}</code>" if stdout else "<i>No output</i>"
     await message.reply_text(res)
 
 @Client.on_message()

@@ -1129,3 +1129,120 @@ NameError: name 'message' is not defined. Did you mean: 'Message'?
 2026-03-30 13:30:54,070 - __main__ - INFO - ════════════════════════════════════════════════════════════════
 2026-03-30 13:30:54,070 - __main__ - INFO - 👋 البوت متوقف
 2026-03-30 13:30:54,070 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:47:50,278 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-30 13:47:50,284 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-30 13:47:50,290 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-30 13:47:50,295 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-30 13:47:50,295 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-30 13:47:50,296 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-30 13:47:50,296 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-30 13:47:50,305 - __main__ - INFO - ======================================================================
+2026-03-30 13:47:50,305 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-30 13:47:50,305 - __main__ - INFO - ======================================================================
+2026-03-30 13:47:50,305 - __main__ - INFO - ✅ TOKEN: 5892582536:AAGnc7hxS...
+2026-03-30 13:47:50,305 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-30 13:47:50,305 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-30 13:47:50,382 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-30 13:47:50,383 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-30 13:47:50,388 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-30 13:47:50,388 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-30 13:47:50,406 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-30 13:47:50,880 - __main__ - INFO - ✅ تم تحميل Plugins.all
+2026-03-30 13:47:50,888 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-30 13:47:50,910 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-30 13:47:50,915 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-30 13:47:50,918 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-30 13:47:50,924 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-30 13:47:50,935 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-30 13:47:50,942 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-30 13:47:50,946 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-30 13:47:50,948 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-30 13:47:50,952 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-30 13:47:50,952 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-30 13:47:50,970 - __main__ - INFO - ✅ تم تحميل Plugins.group_update
+2026-03-30 13:47:50,984 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-30 13:47:50,988 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-30 13:47:50,998 - __main__ - ERROR - ⚠️ خطأ في تحميل Plugins.downloader: No module named 'yt_dlp'
+Traceback (most recent call last):
+  File "/home/runner/workspace/bmqa/main.py", line 525, in main
+    mod = importlib.import_module(module_name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/iizfzmqjdfvbyx82gqw92glb5zl6m4my-python3-3.12.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/runner/workspace/bmqa/Plugins/downloader.py", line 17, in <module>
+    import yt_dlp,os, requests, re, time, random, json
+ModuleNotFoundError: No module named 'yt_dlp'
+2026-03-30 13:47:51,003 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-30 13:47:51,132 - __main__ - INFO - ✅ تم تحميل Plugins.private_sudos
+2026-03-30 13:47:51,132 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-30 13:47:51,132 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:47:51,132 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-30 13:47:51,132 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:47:51,467 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getMe "HTTP/1.1 200 OK"
+2026-03-30 13:47:51,616 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-30 13:47:51,618 - telegram.ext.Application - INFO - Application started
+2026-03-30 13:48:01,937 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:48:12,046 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:48:22,153 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:48:26,228 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:48:26,229 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-03-30 13:48:26,229 - telegram.ext.Application - INFO - Application.stop() complete
+2026-03-30 13:48:26,230 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:48:26,230 - __main__ - INFO - 👋 البوت متوقف
+2026-03-30 13:48:26,230 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:48:33,334 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-30 13:48:33,335 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-30 13:48:33,336 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-30 13:48:33,338 - kvsqlite.sqlite - INFO - Connected to ytdb.sqlite
+2026-03-30 13:48:33,338 - kvsqlite.sqlite - INFO - Connected to sounddb.sqlite
+2026-03-30 13:48:33,339 - kvsqlite.sqlite - INFO - Connected to wsdb.sqlite
+2026-03-30 13:48:33,339 - __main__ - INFO - ✅ تم تحميل الإعدادات
+2026-03-30 13:48:33,340 - __main__ - INFO - ======================================================================
+2026-03-30 13:48:33,340 - __main__ - INFO - 🚀 يتم بدء البوت...
+2026-03-30 13:48:33,340 - __main__ - INFO - ======================================================================
+2026-03-30 13:48:33,340 - __main__ - INFO - ✅ TOKEN: 5892582536:AAGnc7hxS...
+2026-03-30 13:48:33,340 - __main__ - INFO - ✅ OWNER_ID: 7264011066
+2026-03-30 13:48:33,340 - __main__ - INFO - ✅ BOT_NAME: 
+2026-03-30 13:48:33,412 - __main__ - INFO - ✅ التطبيق جاهز
+2026-03-30 13:48:33,412 - __main__ - INFO - 🔄 جاري تحميل الـ Plugins...
+2026-03-30 13:48:33,413 - Plugins.welcome_and_rules - INFO - ✅ تم تسجيل معالجات الترحيب
+2026-03-30 13:48:33,414 - __main__ - INFO - ✅ تم تحميل Plugins.welcome_and_rules
+2026-03-30 13:48:33,414 - __main__ - INFO - ✅ تم تحميل Plugins.fun
+2026-03-30 13:48:33,668 - __main__ - INFO - ✅ تم تحميل Plugins.all
+2026-03-30 13:48:33,668 - __main__ - INFO - ✅ تم تحميل Plugins.mute_and_gban
+2026-03-30 13:48:33,669 - __main__ - INFO - ✅ تم تحميل Plugins.set_ranks
+2026-03-30 13:48:33,669 - __main__ - INFO - ✅ تم تحميل Plugins.get_ranks
+2026-03-30 13:48:33,670 - __main__ - INFO - ✅ تم تحميل Plugins.del_ranks
+2026-03-30 13:48:33,670 - __main__ - INFO - ✅ تم تحميل Plugins.customCommad
+2026-03-30 13:48:33,670 - __main__ - INFO - ✅ تم تحميل Plugins.customFilter
+2026-03-30 13:48:33,671 - __main__ - INFO - ✅ تم تحميل Plugins.globalFilters
+2026-03-30 13:48:33,671 - __main__ - INFO - ✅ تم تحميل Plugins.customRank
+2026-03-30 13:48:33,672 - __main__ - INFO - ✅ تم تحميل Plugins.replace
+2026-03-30 13:48:33,672 - __main__ - INFO - ✅ تم تحميل Plugins.custom_plugin
+2026-03-30 13:48:33,672 - __main__ - INFO - ✅ تم تحميل Plugins.games
+2026-03-30 13:48:33,674 - __main__ - INFO - ✅ تم تحميل Plugins.group_update
+2026-03-30 13:48:33,674 - __main__ - INFO - ✅ تم تحميل Plugins.id
+2026-03-30 13:48:33,675 - __main__ - INFO - ✅ تم تحميل Plugins.sarhni
+2026-03-30 13:48:33,946 - shazamio_core - INFO - Initializing shazamio_core module
+2026-03-30 13:48:33,946 - shazamio_core - INFO - shazamio_core module initialized successfully
+2026-03-30 13:48:34,060 - shazamio_core - INFO - Recognizer created with segment_duration_seconds = 10
+2026-03-30 13:48:34,060 - __main__ - INFO - ✅ تم تحميل Plugins.downloader
+2026-03-30 13:48:34,061 - __main__ - INFO - ✅ تم تحميل Plugins.whisper
+2026-03-30 13:48:34,094 - __main__ - INFO - ✅ تم تحميل Plugins.private_sudos
+2026-03-30 13:48:34,094 - __main__ - INFO - ✅ جميع المعالجات مسجلة
+2026-03-30 13:48:34,094 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:48:34,094 - __main__ - INFO - 🔮 جاري تشغيل البوت...
+2026-03-30 13:48:34,095 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:48:34,421 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getMe "HTTP/1.1 200 OK"
+2026-03-30 13:48:34,644 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-30 13:48:34,647 - telegram.ext.Application - INFO - Application started
+2026-03-30 13:48:44,967 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:48:55,076 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:49:05,192 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"

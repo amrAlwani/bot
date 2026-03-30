@@ -14,18 +14,18 @@
 
 '''
 
-import random, re, pytz as th
-
-
+import random, re
+import pytz
 
 from datetime import datetime 
-from telegram import Update
+from telegram import (Update, InlineKeyboardMarkup, InlineKeyboardButton,
+    InlineQueryResultArticle, InputTextMessageContent)
+from telegram.constants import ParseMode
 from telegram.ext import ContextTypes, MessageHandler, filters
 import asyncio
 
 from config import *
 
-import random
 import string
 
 class _DummyClient:
@@ -45,7 +45,7 @@ Client = _DummyClient()
 
 
 def get_id():
-   rndm = ''.join([randomessage.choice(string.ascii_letters
+   rndm = ''.join([random.choice(string.ascii_letters
             + string.digits) for n in range(7)])
    return rndm
 
@@ -95,7 +95,7 @@ async def english_whisper(app,iquery):
           thumb_width=128, thumb_height=128,
           input_message_content=InputTextMessageContent(
             message_text=text,
-            parse_mode=enums.ParseMode.MARKDOWN 
+            parse_mode=ParseMode.MARKDOWN
           ),
           reply_markup=reply_markup
        )
@@ -142,7 +142,7 @@ async def arabic_whisper(app,iquery):
           thumb_width=128, thumb_height=128,
           input_message_content=InputTextMessageContent(
             message_text=text,
-            parse_mode=enums.ParseMode.MARKDOWN 
+            parse_mode=ParseMode.MARKDOWN
           ),
           reply_markup=reply_markup
        )
