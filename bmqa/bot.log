@@ -1246,3 +1246,19 @@ ModuleNotFoundError: No module named 'yt_dlp'
 2026-03-30 13:48:44,967 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
 2026-03-30 13:48:55,076 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
 2026-03-30 13:49:05,192 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:49:15,300 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:49:25,410 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:49:35,519 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:49:45,627 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:49:55,743 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:05,851 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:15,958 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:26,077 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:36,187 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:46,298 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:56,388 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot5892582536:AAGnc7hxSfEque9vSKK5BueykFDYFhFnoaY/getUpdates "HTTP/1.1 200 OK"
+2026-03-30 13:50:56,389 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-03-30 13:50:56,390 - telegram.ext.Application - INFO - Application.stop() complete
+2026-03-30 13:50:56,391 - __main__ - INFO - ════════════════════════════════════════════════════════════════
+2026-03-30 13:50:56,391 - __main__ - INFO - 👋 البوت متوقف
+2026-03-30 13:50:56,391 - __main__ - INFO - ════════════════════════════════════════════════════════════════
