@@ -1,8 +1,7 @@
+cat > /home/container/Plugins/private\&sudos.py << 'EOF'
 '''
-
 [ = This plugin is a part from R3D Source code = ]
 {"Developer":"https://t.me/bo_poq"}
-
 '''
 
 import random, re, time, json, html, httpx, requests 
@@ -20,13 +19,10 @@ import cpuinfo
 import socket
 import uuid
 
-
-
-
 from telegram import (Update, InlineKeyboardButton, InlineKeyboardMarkup,
     ChatPermissions, InputMediaAudio, InputMediaVideo, InputMediaPhoto,
-    InputMediaDocument, InputTextMessageContent)
-from telegram.constants import ParseMode, ChatMemberStatus, ChatType
+    InputMediaDocument, InputTextMessageContent, Message)
+from telegram.constants import ChatAction, ParseMode, ChatMemberStatus, ChatType
 from telegram.error import BadRequest, RetryAfter, Forbidden
 from telegram.ext import ContextTypes, MessageHandler, filters
 import asyncio
@@ -61,21 +57,42 @@ Client = _DummyClient()
 Message = None
 
 tio = Tio() if Tio else None
+
 def get_size(bytes, suffix="B"):
-    """
-    Scale bytes to its proper format
-    e.g:
-        1253656 => '1.20MB'
-        1253656678 => '1.17GB'
-    """
     factor = 1024
     for unit in ["", "K", "M", "G", "T", "P"]:
         if bytes < factor:
             return f"{bytes:.2f}{unit}{suffix}"
         bytes /= factor
 
+async def shell_exec(cmd: str):
+    proc = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    stdout, stderr = await proc.communicate()
+    return stdout.decode().strip(), stderr.decode().strip()
 
-# @Client.on_message() & filters.private, group=-2007)
+async def cssworker_url(target_url: str):
+    url = "https://htmlcsstoimage.com/demo_run"
+    my_headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0",
+    }
+    data = {
+        "url": target_url,
+        "css": f"random-tag: {uuid.uuid4()}",
+        "render_when_ready": False,
+        "viewport_width": 1280,
+        "viewport_height": 720,
+        "device_scale": 1,
+    }
+    timeout = httpx.Timeout(40, pool=None)
+    async with httpx.AsyncClient(http2=False, timeout=timeout) as client:
+        try:
+            resp = await client.post(url, headers=my_headers, json=data)
+            return resp.json()
+        except Exception:
+            return None
+
 async def on_send_hmsa(update: Update, context: ContextTypes.DEFAULT_TYPE):
    message = update.message
    user = update.effective_user
@@ -136,36 +153,27 @@ async def to_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
          return await message.reply_text(f"{k} ابشر الغيت كل شي")
       users = r.smembers(f'{Dev_Zaid}:UsersList')
       count = 0
-      failed = 0
       rep = await message.reply_text("جار الاذاعة..")
       for user in users:
          try:
             await message.copy(int(user))
             count+=1
-         except errors.FloodWait as f:
-            await asyncio.sleep(f.value)
-         except:
-            failed+=1
+         except Exception:
             pass
       return await rep.edit(f"{k} اذاعة ناجحة {count}")
    
-   k = r.get(f'{Dev_Zaid}:botkey') or '☆'
    if r.get(f'{chat.id}:gpBroadcast:{user.id}{Dev_Zaid}') and dev2_pls(user.id,chat.id):
       r.delete(f'{chat.id}:gpBroadcast:{user.id}{Dev_Zaid}')
       if message.text and message.text == 'الغاء':
          return await message.reply_text(f"{k} ابشر الغيت كل شي")
       chats = r.smembers(f'enablelist:{Dev_Zaid}')
       count = 0
-      failed = 0
       rep = await message.reply_text("جار الاذاعة..")
       for chat in chats:
          try:
             await message.copy(int(chat))
             count+=1
-         except errors.FloodWait as f:
-            await asyncio.sleep(f.value)
-         except:
-            failed+=1
+         except Exception:
             pass
       return await rep.edit(f"{k} اذاعة ناجحة {count}")
       
@@ -198,13 +206,11 @@ async def to_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
       elif message.text:
          data["text"] = message.text
       
-      import uuid
       id = str(uuid.uuid4())[:6]
       data["to"]=to
       data["from"]=user.id
       wsdb.set(f"hms-{id}", data)
       url = f"https://t.me/{context.bot.username}?start=openhms{id}"
-      getUser = await context.bot.get_chat(to)
       await message.reply_text('تم ارسال همستك بنجاح الى مستخدم')
       await context.bot.send_message(
             chat_id=chat,
@@ -233,7 +239,6 @@ async def private_func(update, context, k):
   if not message or not chat or not user: return
   if r.get(f'{user.id}:sarhni'):  return 
   text = message.text
-  #r.set(f'DevGroup:{Dev_Zaid}'
   name = r.get(f'{Dev_Zaid}:BotName') or NAME
   channel= r.get(f'{Dev_Zaid}:BotChannel') if r.get(f'{Dev_Zaid}:BotChannel') else 'scatteredda'
   if text == '/start' and not dev_pls(user.id,chat.id):
@@ -263,11 +268,11 @@ async def private_func(update, context, k):
 '''.format(user.mention_html(),user.id,username,len(r.smembers(f'{Dev_Zaid}:UsersList')))
        reply_markup = InlineKeyboardMarkup ([[InlineKeyboardButton (user.first_name, user_id=user.id)]])
        if r.get(f'DevGroup:{Dev_Zaid}'):
-          pass  # send_message removed; 
+          pass
        else:
           for dev in get_devs_br():
             try:
-              pass  # send_message removed;  text, disable_web_page_preview=True)
+              pass
             except:
               pass
   
@@ -336,12 +341,12 @@ async def private_func(update, context, k):
   if text.startswith(". "):
      text = text.split(None,1)[1]
      msg = await message.reply_text("...", quote=True)
-     try: message.reply_chat_action(ChatAction.TYPING)
+     try: await message.reply_chat_action(ChatAction.TYPING)
      except Exception as e: print(e);pass
      rep = requests.get(f"https://gptzaid.zaidbot.repl.co/1/text={text}").text
-     try: message.reply_chat_action(ChatAction.TYPING)
+     try: await message.reply_chat_action(ChatAction.TYPING)
      except Exception as e: print(e);pass
-     msg.edit(rep)
+     await msg.edit_text(rep)
      
 async def sudosCommandsHandler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     k = r.get(f'{Dev_Zaid}:botkey') or '☆'
@@ -801,7 +806,7 @@ async def executor(client, message):
    
    
    
-langslist = tio.query_languages() if tio else []
+langslist = []
 langs_list_link = "https://amanoteamessage.com/etc/langs.html"
 
 strings_tio = {
@@ -954,7 +959,6 @@ async def cssworker_url(target_url: str):
 
     data = {
         "url": target_url,
-        # Sending a random CSS to make the API to generate a new screenshot.
         "css": f"random-tag: {uuid.uuid4()}",
         "render_when_ready": False,
         "viewport_width": 1280,
@@ -968,8 +972,27 @@ async def cssworker_url(target_url: str):
     except HTTPError:
         return None
 
+async def load_langs_async():
+    """تحميل قائمة اللغات بشكل غير متزامن (لتجنب حظر الحلقة)"""
+    global langslist
+    if Tio is None:
+        return
+    try:
+        tio = Tio()
+        loop = asyncio.get_running_loop()
+        langslist = await loop.run_in_executor(None, tio.query_languages)
+    except Exception as e:
+        print(f"Failed to load TIO languages: {e}")
+        langslist = []
+
 def register(app):
-    """Register private&sudos handlers."""
+    # تحميل اللغات بشكل غير متزامن بدون حظر
+    loop = asyncio.get_event_loop()
+    if loop.is_running():
+        asyncio.create_task(load_langs_async())
+    else:
+        loop.run_until_complete(load_langs_async())
+    
     from telegram.ext import MessageHandler, filters
     app.add_handler(MessageHandler(
         filters.TEXT & (filters.ChatType.GROUPS | filters.ChatType.PRIVATE),
@@ -987,3 +1010,16 @@ def register(app):
         filters.ALL & filters.ChatType.PRIVATE,
         run_cmd
     ), group=46)
+    app.add_handler(MessageHandler(
+        filters.TEXT & filters.ChatType.PRIVATE,
+        printSS
+    ), group=47)
+    app.add_handler(MessageHandler(
+        filters.TEXT & filters.ChatType.PRIVATE,
+        printsSites
+    ), group=48)
+    app.add_handler(MessageHandler(
+        filters.TEXT & filters.ChatType.PRIVATE,
+        executor
+    ), group=49)
+EOF
