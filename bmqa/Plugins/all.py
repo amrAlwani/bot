@@ -385,7 +385,7 @@ async def on_zbi(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         ]
                     ),
                 )
-                r.set(f"inDontCheck:{Dev_Zaid}", ex=10)
+                r.set(f"inDontCheck:{Dev_Zaid}", 1, ex=10)
                 return
             else:
                 return
@@ -1554,7 +1554,8 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
                 await context.bot.ban_chat_member(chat.id, actor_id)
                 await asyncio.sleep(0.5)
                 await context.bot.unban_chat_member(message.chat.id, actor_id)
-                link = context.bot.get_chat(message.chat.id).invite_link
+                chat_obj = await context.bot.get_chat(message.chat.id)
+                link = chat_obj.invite_link
                 try:
                     await context.bot.send_message(
                         actor_id,
@@ -1566,14 +1567,16 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
 
     if text == "الرابط":
         if not r.get(f"{message.chat.id}:disableLINK:{Dev_Zaid}"):
-            link = context.bot.get_chat(message.chat.id).invite_link
+            chat_obj = await context.bot.get_chat(message.chat.id)
+            link = chat_obj.invite_link
             return await message.reply_text(f"[{message.chat.title}]({link})", disable_web_page_preview=True)
 
     if text == "انشاء رابط":
         if not mod_pls(actor_id, message.chat.id):
             return await message.reply_text(f"{k} هذا الامر يخص ( المدير وفوق ) بس")
-        link = context.bot.get_chat(message.chat.id).invite_link
-        context.bot.revoke_chat_invite_link(message.chat.id, link)
+        chat_obj = await context.bot.get_chat(message.chat.id)
+        link = chat_obj.invite_link
+        await context.bot.revoke_chat_invite_link(message.chat.id, link)
         return await message.reply_text(f'{k} ابشر سويت رابط جديد ارسل "الرابط"')
 
     if text.startswith("@all"):
@@ -1854,7 +1857,7 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
          """
             with open(f"zaid{id}.mp3", "wb") as f:
                 try:
-                    context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
+                    await context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
                 except:
                     pass
                 f.write(
@@ -1874,14 +1877,14 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
          )
          """
             try:
-                context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
+                await context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
             except:
                 pass
             os.system(
                 f"ffmpeg -i zaid{id}.mp3 -ac 1 -strict -2 -codec:a libopus -b:a 128k -vbr off -ar 24000 zaid{id}.ogg"
             )
             try:
-                context.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_AUDIO)
+                await context.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_AUDIO)
             except:
                 pass
             await message.reply_voice(f"zaid{id}.ogg", caption=f"الكلمة: {txt}")
@@ -1914,7 +1917,7 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
          """
             with open(f"zaid{id}.mp3", "wb") as f:
                 try:
-                    context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
+                    await context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
                 except:
                     pass
                 f.write(
@@ -1934,14 +1937,14 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
          )
          """
             try:
-                context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
+                await context.bot.send_chat_action(message.chat.id, ChatAction.RECORD_AUDIO)
             except:
                 pass
             os.system(
                 f"ffmpeg -i zaid{id}.mp3 -ac 1 -strict -2 -codec:a libopus -b:a 128k -vbr off -ar 24000 zaid{id}.ogg"
             )
             try:
-                context.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_AUDIO)
+                await context.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_AUDIO)
             except:
                 pass
             await message.reply_voice(f"zaid{id}.ogg", caption=f"الكلمة: {txt}")
@@ -3225,7 +3228,7 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
             return await message.reply_text(f"{k} هذا الامر يخص ( المطور وفوق ) بس")
         username = text.split("@")[1]
         try:
-            chat = context.bot.get_chat(username)
+            chat = await context.bot.get_chat(username)
         except:
             return await message.reply_text(f"{k} حدث خطأ")
         r.set(f"forceChannel:{Dev_Zaid}", "@" + username)
@@ -4063,7 +4066,7 @@ async def guardCommands(update: Update, context: ContextTypes.DEFAULT_TYPE, k, c
         if not mod_pls(actor_id, message.chat.id):
             return await message.reply_text(f"{k} هذا الأمر يخص ( المدير وفوق ) بس")
         else:
-            context.bot.unpin_all_chat_messages(message.chat.id)
+            await context.bot.unpin_all_chat_messages(message.chat.id)
             return await message.reply_text(f"{k} ابشر مسحت قائمة التثبيت")
 
     if (
@@ -4975,7 +4978,8 @@ async def CallbackQueryResponse(update, context: ContextTypes.DEFAULT_TYPE, chan
                         name = r.get(f"{id}:bankName")[:10]
                     else:
                         try:
-                            name = context.bot.get_chat(id).first_name
+                            _chat_obj = await context.bot.get_chat(id)
+                            name = _chat_obj.first_name or str(id)
                             r.set(f"{id}:bankName", name)
                         except:
                             name = "INVALID_NAME"
@@ -5051,7 +5055,8 @@ async def CallbackQueryResponse(update, context: ContextTypes.DEFAULT_TYPE, chan
                         name = r.get(f"{id}:bankName")[:10]
                     else:
                         try:
-                            name = context.bot.get_chat(id).first_name
+                            _chat_obj = await context.bot.get_chat(id)
+                            name = _chat_obj.first_name or str(id)
                             r.set(f"{id}:bankName", name)
                         except:
                             name = "INVALID_NAME"

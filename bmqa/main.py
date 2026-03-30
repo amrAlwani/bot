@@ -74,14 +74,19 @@ Loading…
 
 async def error_handler(update, context):
     error = context.error
-    logger.error(f"❌ حدث خطأ: {error}", exc_info=True)
     if isinstance(error, TelegramConflict):
-        logger.critical("⚠️ CONFLICT: نسخة أخرى من البوت تعمل!")
+        logger.critical("=" * 70)
+        logger.critical("⚠️  CONFLICT DETECTED - نسخة أخرى من البوت تعمل بنفس التوكن!")
+        logger.critical("⚠️  هذا يعني البوت يعمل في مكانين في نفس الوقت (Replit + Wispbyte)")
+        logger.critical("⚠️  أوقف النسخة الأخرى أولاً ثم أعد التشغيل")
+        logger.critical("⚠️  CONFLICT DETECTED - Another instance is running with this token")
+        logger.critical("=" * 70)
         print("=" * 70)
-        print("⚠️  CONFLICT ERROR")
-        print("Another bot instance is already running with this token.")
-        print("Stop other instances and restart.")
+        print("⚠️  CONFLICT ERROR - BOT ALREADY RUNNING ELSEWHERE")
+        print("⚠️  Stop the other instance (Replit/Wispbyte) first!")
         print("=" * 70)
+    else:
+        logger.error(f"❌ حدث خطأ: {error}", exc_info=True)
 
 
 async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -555,11 +560,14 @@ def main():
         )
 
     except TelegramConflict as e:
-        logger.critical(f"❌ CONFLICT ERROR: {e}")
+        logger.critical("=" * 70)
+        logger.critical("⚠️  CONFLICT DETECTED - نسخة أخرى من البوت تعمل بنفس التوكن!")
+        logger.critical("⚠️  أوقف البوت على Replit أو Wispbyte أولاً ثم أعد التشغيل")
+        logger.critical(f"⚠️  التفاصيل: {e}")
+        logger.critical("=" * 70)
         print("=" * 70)
-        print("❌ CONFLICT ERROR")
-        print("Another bot instance is already running with this token.")
-        print("Stop other instances and restart.")
+        print("⚠️  CONFLICT - BOT ALREADY RUNNING WITH THIS TOKEN")
+        print("⚠️  Stop Replit or Wispbyte instance first, then restart")
         print("=" * 70)
         sys.exit(1)
 

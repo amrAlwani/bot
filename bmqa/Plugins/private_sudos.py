@@ -833,7 +833,7 @@ async def exec_tio_run_code(update: Update, context: ContextTypes.DEFAULT_TYPE):
     codetoexec = parts[2]
     if execlanguage in langslist:
         tioreq = TioRequest(lang=execlanguage, code=codetoexec)
-        loop = asyncio.get_event_loop()
+        loop = asyncio.get_running_loop()
         sendtioreq = await loop.run_in_executor(None, tio.send, tioreq)
         tioerrres = sendtioreq.error or "None"
         tiores = sendtioreq.result or "None"
