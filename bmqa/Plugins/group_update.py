@@ -178,30 +178,15 @@ async def global_filter(update: Update, context: ContextTypes.DEFAULT_TYPE):
    
    
    if text == 'المطور':
-     id = int(r.get(f'{Dev_Zaid}botowner'))
-     get = None
-     if False:
-       bio = None
-     else:
-       bio = None
-     reply_markup= InlineKeyboardMarkup (
-       [[InlineKeyboardButton ("مستخدم", user_id=id)]]
+     id = int(r.get(f'{Dev_Zaid}botowner') or 0)
+     bio = None
+     reply_markup = InlineKeyboardMarkup(
+       [[InlineKeyboardButton("مستخدم", user_id=id)]]
      )
-     if False:
-       return await message.reply_animation('https://telegra.ph/file/d9127c65922817d127f04.mp4',caption=bio,reply_markup=reply_markup)
-     else:
-       get_user = None
-       photo = None
-       video = photo.video_sizes[0] if photo.video_sizes else None
-       if video:
-         file = BytesIO()
-         if False:
-           file.write(byte)
-           file.name = f'{id}vid.mp4'
-           return await message.reply_animation(file, caption=bio,reply_markup=reply_markup)
-       else:
-         if False:
-           return await message.reply_photo(photo.file_id, caption=bio, reply_markup=reply_markup)
+     return await message.reply_animation(
+       'https://telegra.ph/file/d9127c65922817d127f04.mp4',
+       caption=bio, reply_markup=reply_markup
+     )
         
         
         
@@ -675,7 +660,7 @@ async def get_bot_status(update, context, k):
                 r.sadd(f'enablelist:{Dev_Zaid}', chat.id)
                 r.set(f'{chat.id}:rankOWNER:{user.id}{Dev_Zaid}', 1)
                 r.sadd(f'{chat.id}:listOWNER:{Dev_Zaid}', user.id)
-                for member in await chat.get_administrators():
+                for member in await context.bot.get_chat_administrators(chat.id):
                    if not member.user.is_bot :
                       if member.status == ChatMemberStatus.OWNER:
                          r.set(f'{chat.id}:rankGOWNER:{member.user.id}{Dev_Zaid}', 1)
@@ -684,7 +669,7 @@ async def get_bot_status(update, context, k):
                       if member.status == ChatMemberStatus.ADMINISTRATOR:
                          r.set(f'{chat.id}:rankADMIN:{member.user.id}{Dev_Zaid}', 1)
                          r.sadd(f'{chat.id}:listADMIN:{Dev_Zaid}', member.user.id)
-                get = None
+                get = await context.bot.get_chat(chat.id)
                 text = f'{k} من「 {user.mention_html()} 」\n'
                 usrr = '@'+user.username if user.username else 'مافيه'
                 text += f'{k} يوزره : {usrr}\n'
