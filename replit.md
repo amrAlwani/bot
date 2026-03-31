@@ -1,63 +1,95 @@
-# BMQA Telegram Bot
+# Workspace — Two Telegram Bot Projects
 
-## Project Overview
-A Python Telegram bot (R3D Bot) built with `python-telegram-bot==21.0.1`. It provides group management, media downloading, games, custom filters/ranks, and other Telegram group utilities. The bot is written in Arabic/English and targets Arabic-speaking Telegram communities.
+---
 
-## Project Structure
+## Project 1: BMQA / R3D Bot (`bmqa/`)
+
+A feature-rich Arabic-language Telegram group-management bot.
+
+### Configuration
+- `BOT_TOKEN` — Telegram bot token (secret)
+- `OWNER_ID` — Bot owner's Telegram ID (default: 7264011066)
+
+### Dependencies
+- `python-telegram-bot==21.0.1`, `redis` (DummyRedis fallback), `kvsqlite`
+- `yt-dlp`, `pydub`, `mutagen`, `SpeechRecognition`, `gTTS`, `shazamio`, `Pillow`, `akinator`
+
+### Workflow
+`cd bmqa && python main.py`
+
+### Key fixes applied
+- Lazy Redis init in `config.py` (no blocking ping at import time)
+- Fixed 9+ missing `await` on async PTB calls in `Plugins/all.py`
+- Fixed `r.set()` missing value arg (line 388)
+- Fixed deprecated `asyncio.get_event_loop()` in `private_sudos.py`
+
+---
+
+## Project 2: MenuBuilder Bot (`menubuilder/`)
+
+A **bot factory** — users add their own bot tokens and build fully-featured menu bots with no coding.
+
+### Architecture
+- **Main bot** — management interface for bot owners
+- **Child bots** — user-configured bots running as asyncio tasks in the same process
+
+### Setup
 ```
-bmqa/
-├── main.py              # Main bot entry point, registers all handlers
-├── config.py            # Configuration: Redis/DummyRedis, TOKEN, OWNER_ID, DB setup
-├── information.py       # Fallback token info
-├── requirements.txt     # Python dependencies
-├── clean.py             # Cleanup utilities
-├── convert_plugins.py   # Plugin conversion helpers
-├── helpers/             # Helper modules
-│   ├── Ranks.py         # Rank/permission system
-│   ├── utils.py         # General utilities
-│   ├── games.py         # Game helpers
-│   ├── memes.py         # Meme helpers
-│   ├── quran.py         # Quran data
-│   ├── persianData.py   # Persian data
-│   └── get_create.py    # Get/create helpers
-└── Plugins/             # Feature plugins
-    ├── all.py           # Core commands
-    ├── welcome_and_rules.py
-    ├── fun.py
-    ├── games.py
-    ├── downloader.py    # Media download (YouTube, etc.)
-    ├── mute_and_gban.py
-    ├── set_ranks.py / get_ranks.py / del_ranks.py / customRank.py
-    ├── customCommad.py / customFilter.py / globalFilters.py
-    ├── custom_plugin.py
-    ├── group_update.py
-    ├── id.py
-    ├── sarhni.py
-    ├── whisper.py
-    ├── replace.py
-    └── private&sudos.py
+cp menubuilder/.env.example menubuilder/.env
+# Fill in MAIN_BOT_TOKEN and MAIN_BOT_ADMIN
+cd menubuilder && pip install -r requirements.txt
+python main.py
 ```
 
-## Configuration & Environment Variables
-- `BOT_TOKEN` - Telegram bot token (required, set as secret)
-- `OWNER_ID` - Bot owner's Telegram user ID (default: 7264011066)
-- `BOT_NAME` / `NAME` - Bot display name
+### Environment Variables (`.env`)
+| Variable | Description | Default |
+|---|---|---|
+| `MAIN_BOT_TOKEN` | Token of the main management bot | required |
+| `MAIN_BOT_ADMIN` | Telegram ID of the platform admin | required |
+| `DB_PATH` | SQLite database file path | `menubuilder.db` |
+| `MAX_BOTS_PER_USER` | Max bots per user | `5` |
+| `MAIL_DELAY` | Delay (seconds) between broadcast messages | `0.05` |
 
-## Dependencies
-- `python-telegram-bot==21.0.1` - Telegram Bot API framework
-- `redis` / `DummyRedis` (fallback) - Session/state storage
-- `kvsqlite` - SQLite-backed key-value store (ytdb, sounddb, wsdb)
-- `yt-dlp` - YouTube/media downloading
-- `pydub`, `mutagen`, `SpeechRecognition`, `gTTS` - Audio processing
-- `shazamio` - Music recognition
-- `akinator` - Akinator game API
-- `Pillow` - Image processing
+### Project Structure
+```
+menubuilder/
+├── main.py                  # Entry point — starts main bot + restores child bots
+├── config.py                # Env var loader
+├── .env.example             # Example environment file
+├── requirements.txt         # aiosqlite, python-telegram-bot>=21, python-dotenv
+├── models/
+│   └── database.py          # SQLite schema (14 tables), init_db, setting_get/set
+├── utils/
+│   ├── keyboards.py         # All InlineKeyboardMarkup builders
+│   ├── macros.py            # Process {name} {balance} {id} {ref_link} etc.
+│   └── bot_runner.py        # Start/stop/track child bot Application instances
+└── handlers/
+    ├── start.py             # /start, home panel, help, my_stats
+    ├── bot_manager.py       # Add bot (token), list, start/stop, delete
+    ├── menu_builder.py      # Create/edit menus and buttons (text, url, submenu)
+    ├── broadcast.py         # Mailing to all bot users (text + media)
+    ├── settings.py          # Maintenance mode, captcha, welcome text, referral bonus
+    ├── shop.py              # eShop — categories, products, cart, orders (admin side)
+    └── child_bot.py         # Child bot logic: /start, menu nav, shop, captcha, referrals
+```
 
-## Workflow
-- **Start application**: `cd bmqa && python main.py` (console output)
-- No web frontend — pure Telegram bot
+### Features
+| Feature | Description |
+|---|---|
+| Multi-bot management | Add unlimited bots via BotFather token |
+| Menu builder | Create menus with text-reply, URL, and submenu buttons |
+| Broadcast/mailing | Send text & media to all users with stats |
+| Referral system | Auto-track referrals, award configurable bonus |
+| User balance | Virtual balance per user per bot |
+| eShop | Categories → Products → Cart → Orders |
+| Admin panel | Add/remove bot admins |
+| Maintenance mode | Block non-admins with custom message |
+| Captcha | Math-question verification on /start |
+| Welcome message | Custom welcome with macro variables |
+| Statistics | Users, orders, mailings, referrals |
+| Macros | {name} {username} {id} {balance} {users} {ref_link} |
 
-## Notes
-- Redis is optional; falls back to in-memory `DummyRedis` if Redis is not available
-- The bot requires a valid `BOT_TOKEN` to connect to Telegram
-- If a conflict error appears, another bot instance with the same token is running elsewhere
+### Database Schema (SQLite)
+`managed_bots`, `bot_admins`, `bot_users`, `menus`, `menu_buttons`, `bot_commands`,
+`bot_settings`, `shop_categories`, `shop_products`, `cart_items`, `orders`,
+`mailing_history`, `referrals`
